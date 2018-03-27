@@ -6,13 +6,37 @@
     android:layout_height="match_parent"
     tools:context="com.example.danramirez.afg.MainActivity">
 
+    <EditText
+        android:id="@+id/zipCodeEditText"
+        android:layout_width="92dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="43dp" />
+
     <TextView
+        android:id="@+id/zipCodeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Zip Code"
+        tools:layout_editor_absoluteX="199dp"
+        tools:layout_editor_absoluteY="16dp" />
 
+    <EditText
+        android:id="@+id/radiusEditText"
+        android:layout_width="81dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="287dp"
+        tools:layout_editor_absoluteY="43dp" />
+
+    <TextView
+        android:id="@+id/radiusText"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:text="Requested Radius"
+        tools:layout_editor_absoluteX="261dp"
+        tools:layout_editor_absoluteY="16dp" />
 </android.support.constraint.ConstraintLayout>
