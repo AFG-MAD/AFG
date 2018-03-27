@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AFG</string>
+    <string name="textResultsHeading" />
+    <string name="resultsText">Results For</string>
 </resources>
