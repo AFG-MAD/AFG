@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">AFG</string>
+    <string name ="spinner_title">Select Category</string>
+    <string name="zipCodeText">Zip Code</string>
+    <string name="radiusText">Radius</string>
+    <string name="discoveryText">Discovery Section</string>
+    <string name="descriptionText">Description</string>
+    <string name="locationText">Location</string>
+    <string name="categoryText">Category:</string>
+
+
 </resources>
