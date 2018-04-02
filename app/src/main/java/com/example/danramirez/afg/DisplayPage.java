@@ -15,12 +15,17 @@ public class DisplayPage extends AppCompatActivity
         //Get the intent that started this display and extract the data
         Bundle bundle = getIntent().getExtras();
 
+        //Create heading title saying Results for "engineering" within 30 miles of 20305
+        //Need to make a getSubject from the drop down and a getRadius and a getZip
+
        /* String subject = bundle.getSubject("subject");
         int radius = bundle.getRadius("radius");
         int zipcode = bundle.getZip("zipcode");
 
         TextView textResults = findViewById(R.id.textResultsHeading);
-        textResults.setText("Results for " + subject + " within " + radius + " of " + zipcode);*/
+        textResults.setText("Results for " + subject + " within " + radius + " miles of " + zipcode);*/
+
+
     }
 
 
