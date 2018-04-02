@@ -2,6 +2,7 @@ package com.example.danramirez.afg;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
         Object category = parent.getItemAtPosition(pos);
         String selectedCategory = category.toString();
-
+        Log.d("MainActivity", selectedCategory);
     }
 
     public void onNothingSelected(AdapterView<?> parent){
