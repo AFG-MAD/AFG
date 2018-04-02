@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1065354127301",
+    "firebase_url": "https://afg-db.firebaseio.com",
+    "project_id": "afg-db",
+    "storage_bucket": "afg-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065354127301:android:624db3a8d24252ba",
+        "android_client_info": {
+          "package_name": "com.example.danramirez.afg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1065354127301-r63nlifk86s2u4v0catogt5c6smcqoq0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.danramirez.afg",
+            "certificate_hash": "2b726a188950beca6cdb9e3df7920fd19c7cbc13"
+          }
+        },
+        {
+          "client_id": "1065354127301-qio989hkd5os0bs87q9dc3nd40d2q2g2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXYndCSEBcE-El9sgsQrf6T7ZtA9bnkhA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1065354127301-qio989hkd5os0bs87q9dc3nd40d2q2g2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
