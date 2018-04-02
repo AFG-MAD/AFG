@@ -2,10 +2,14 @@ package com.example.danramirez.afg;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< Updated upstream
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+=======
+import android.view.View;
+>>>>>>> Stashed changes
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 }
