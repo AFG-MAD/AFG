@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
     private ArrayList<Job> jobs;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
