@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Job> jobs;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
