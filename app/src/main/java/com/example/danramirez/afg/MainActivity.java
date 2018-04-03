@@ -45,20 +45,19 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
         jobs = new ArrayList<Job>();
-        readSongData();
+        database.child("JobListing").setValue(jobs);
+        //readJobData();
 
-        for(Job job: jobs) {
+        /*for(Job job: jobs) {
             Log.d("MainActivity", job.getTitle() + " " + job.getCompany() + " " + job.getDescription() + " " + job.getAddress());
             database.child("JobListing").setValue(job);
-        }
-
-
+        }*/
 
     }
 
 
 
-    private void readSongData() {
+    private void readJobData() {
         // Read data from file
         InputStream is = getResources().openRawResource(R.raw.joblist);
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
