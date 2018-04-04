@@ -12,8 +12,8 @@
     <string name="textAddtoFav">Add To Favorites</string>
     <string name="textDiscoveryHeading" />
     <string name="textHeadingDisc">Discovery Page</string>
+    <string name="textResultsHeading">Results Heading:</string>
 
-    //Dropdown Choices
 
     <string-array name="categories_array">
         <item>Math</item>
