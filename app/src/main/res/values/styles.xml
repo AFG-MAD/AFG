@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="homeButton">Home</style>
+
+    <style name="favoriteButton">Favorites</style>
+
 </resources>
