@@ -45,8 +45,9 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
         jobs = new ArrayList<Job>();
+        readJobData();
         database.child("JobListings").setValue(jobs);
-        //readJobData();
+
 
         /*for(Job job: jobs) {
             Log.d("MainActivity", job.getTitle() + " " + job.getCompany() + " " + job.getDescription() + " " + job.getAddress());
@@ -66,10 +67,12 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         String line = "";
         try {
             while((line = reader.readLine()) != null) {
-                // Split by ','
+                // Split by '''
+                int j = 0;
                 String[] fields = line.split("'''");
-                Job s = new Job(fields[0], fields[1], fields[2], fields[3]);
+                Job s = new Job(fields[0], fields[1], fields[2], fields[3], j);
                 jobs.add(s);
+                j++;
             }
         } catch(IOException e) {
             Log.e("MainActivity", "Error reading data on line " + line);
