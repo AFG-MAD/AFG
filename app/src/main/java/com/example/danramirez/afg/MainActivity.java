@@ -63,12 +63,13 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         // Read data from file
         InputStream is = getResources().openRawResource(R.raw.joblist);
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        int j = 0;
 
         String line = "";
         try {
             while((line = reader.readLine()) != null) {
                 // Split by '''
-                int j = 0;
+
                 String[] fields = line.split("'''");
                 Job s = new Job(fields[0], fields[1], fields[2], fields[3], j);
                 jobs.add(s);
@@ -77,6 +78,10 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         } catch(IOException e) {
             Log.e("MainActivity", "Error reading data on line " + line);
         }
+
+    }
+
+    private void pullJobListings() {
 
     }
 
