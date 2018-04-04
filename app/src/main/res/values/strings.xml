@@ -9,6 +9,9 @@
     <string name="descriptionText">Description</string>
     <string name="locationText">Location</string>
     <string name="categoryText">Category:</string>
+    <string name="textAddtoFav">Add To Favorites</string>
+    <string name="textDiscoveryHeading" />
+    <string name="textHeadingDisc">Discovery Page</string>
     <string name="textResultsHeading">Results Heading:</string>
 
 
