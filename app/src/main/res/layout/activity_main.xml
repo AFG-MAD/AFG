@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.danramirez.afg.MainActivity">
 
+
     <EditText
         android:id="@+id/zipCodeEditText"
         android:layout_width="70dp"
@@ -80,11 +81,6 @@
         android:id="@+id/discoveryText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<
-
-    < Updated
-        upstream
-        android:layout_height="3dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -98,7 +94,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.171"
-        tools:textSize="18sp" />
+        tools:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/radiusEditText"
+        app:layout_constraintTop_toBottomOf="@+id/zipCodeEditText" />
 
     <TextView
         android:id="@+id/descriptionText"
@@ -134,12 +132,6 @@
         app:layout_constraintEnd_toEndOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="@+id/spinner" />
 
-=======
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="29dp"
-        android:text="Discovery Section"
-        app:layout_constraintEnd_toStartOf="@+id/radiusEditText"
-        app:layout_constraintTop_toBottomOf="@+id/zipCodeEditText" />
 
     <ImageButton
         android:id="@+id/imageButton8"
@@ -193,5 +185,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.951" />
->>>>>>> Stashed changes
+
 </android.support.constraint.ConstraintLayout>
