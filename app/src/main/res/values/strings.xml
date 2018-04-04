@@ -9,8 +9,8 @@
     <string name="descriptionText">Description</string>
     <string name="locationText">Location</string>
     <string name="categoryText">Category:</string>
+    <string name="textResultsHeading">Results Heading:</string>
 
-    //Dropdown Choices
 
     <string-array name="categories_array">
         <item>Math</item>
