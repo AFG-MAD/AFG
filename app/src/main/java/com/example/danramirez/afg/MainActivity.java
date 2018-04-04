@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
         jobs = new ArrayList<Job>();
-        database.child("JobListing").setValue(jobs);
+        database.child("JobListings").setValue(jobs);
         //readJobData();
 
         /*for(Job job: jobs) {
