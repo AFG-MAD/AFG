@@ -9,6 +9,7 @@ public class Job {
     private String company;
     private String jobDescription;
     private String address;
+    private int jobID;
 
 
     public Job(){
@@ -16,13 +17,15 @@ public class Job {
         company = "Company";
         jobDescription = "Job Description";
         address = "Address";
+        jobID = -1;
     }
 
-    public Job(String title, String comp, String desc, String addr){
+    public Job(String title, String comp, String desc, String addr, int id){
         jobTitle = title;
         company = comp;
         jobDescription = desc;
         address = addr;
+        jobID = id;
     }
 
     public String getTitle(){
@@ -38,4 +41,6 @@ public class Job {
     }
 
     public String getCompany() { return company; }
+
+    public int getID() { return jobID; }
 }
