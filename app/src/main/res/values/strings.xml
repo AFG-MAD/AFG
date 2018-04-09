@@ -1,10 +1,9 @@
 <resources>
-    <string name="app_name">AFG</string>
     <string name="favoritesLabel">favorites</string>
     <string name="TextFavorites">Favorites</string>
     <string name ="spinner_categories">Select Category</string>
-    <string name="zipCodeText">Zip Code</string>
-    <string name="radiusText">Radius</string>
+    <string name="zipCodeText">Zip Code:</string>
+    <string name="radiusText">Radius:</string>
     <string name="discoveryText">Discovery Section</string>
     <string name="descriptionText">Description</string>
     <string name="locationText">Location</string>
@@ -12,7 +11,7 @@
     <string name="textAddtoFav">Add To Favorites</string>
     <string name="textDiscoveryHeading" />
     <string name="textHeadingDisc">Discovery Page</string>
-    <string name="textResultsHeading">Results Heading:</string>
+    <string name="textResultsHeading">Results</string>
 
 
     <string-array name="categories_array">
@@ -26,5 +25,7 @@
 
 
     </string-array>
+    <string name="app_name">AFG</string>
+    <string name="goButton">Go!</string>
 
 </resources>
