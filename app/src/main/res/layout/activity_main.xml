@@ -9,27 +9,27 @@
 
     <EditText
         android:id="@+id/zipCodeEditText"
-        android:layout_width="70dp"
+        android:layout_width="72dp"
         android:layout_height="22dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="184dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="184dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="number|numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/headingForDiscovery"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.096" />
+        app:layout_constraintVertical_bias="0.368" />
 
     <TextView
         android:id="@+id/zipCodeText"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="19dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -37,43 +37,50 @@
         android:text="@string/zipCodeText"
         app:layout_constraintBottom_toTopOf="@+id/zipCodeEditText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="36dp"
         android:layout_height="28dp"
+        android:layout_marginBottom="100dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="404dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="404dp"
-        android:layout_marginTop="84dp"
 
 
+        android:layout_marginTop="8dp"
         android:prompt="@string/spinner_categories"
+        app:layout_constraintBottom_toTopOf="@+id/headingForDiscovery"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.843" />
 
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="72dp"
-        android:layout_height="22dp"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginBottom="100dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="84dp"
+
+
+        android:layout_marginTop="8dp"
         android:prompt="@string/spinner_categories"
-        app:layout_constraintEnd_toStartOf="@+id/zipCodeEditText"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintBottom_toTopOf="@+id/headingForDiscovery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
-
-        />
+        app:layout_constraintVertical_bias="0.829" />
 
     <TextView
         android:id="@+id/descriptionText"
@@ -90,8 +97,7 @@
         app:layout_constraintEnd_toStartOf="@+id/locationText"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/locationText"
@@ -116,14 +122,14 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="8dp"
         android:text="@string/categoryText"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintHorizontal_bias="0.948"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.003" />
+        app:layout_constraintVertical_bias="1.0" />
 
     =======
     android:layout_marginEnd="10dp"
@@ -185,24 +191,7 @@
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.979" />
-
-    <ListView
-        android:layout_width="580dp"
-        android:layout_height="329dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
+        app:layout_constraintVertical_bias="0.967" />
 
     <TextView
         android:id="@+id/headingForDiscovery"
@@ -218,11 +207,11 @@
         android:textColorLink="@android:color/holo_blue_bright"
         android:textSize="20pt"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.267" />
+        app:layout_constraintVertical_bias="0.96" />
 
     <TextView
         android:id="@+id/textdescribeAdd"
@@ -237,9 +226,9 @@
         android:text="@string/textAddtoFav"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/descriptionText"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/radiusText"
@@ -252,12 +241,47 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/radiusText"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/spinner2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ListView
+        android:layout_width="580dp"
+        android:layout_height="283dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.862" />
+
+    <Button
+        android:id="@+id/goButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/goButton"
+        app:layout_constraintBottom_toTopOf="@+id/headingForDiscovery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.908" />
     >>>>>>> Stashed changes
 
 </android.support.constraint.ConstraintLayout>
