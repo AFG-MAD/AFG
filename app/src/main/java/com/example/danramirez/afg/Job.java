@@ -1,5 +1,10 @@
 package com.example.danramirez.afg;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * Created by danramirez on 3/28/18.
  */
@@ -9,7 +14,7 @@ public class Job {
     private String company;
     private String jobDescription;
     private String address;
-    private int jobID;
+    private String jobID;
 
 
     public Job(){
@@ -17,10 +22,10 @@ public class Job {
         company = "Company";
         jobDescription = "Job Description";
         address = "Address";
-        jobID = -1;
+        jobID = "Job ID";
     }
 
-    public Job(String title, String comp, String desc, String addr, int id){
+    public Job(String title, String comp, String desc, String addr, String id){
         jobTitle = title;
         company = comp;
         jobDescription = desc;
@@ -42,5 +47,12 @@ public class Job {
 
     public String getCompany() { return company; }
 
-    public int getID() { return jobID; }
+    public String getID() { return jobID; }
+
+    public void setID(String id) { jobID = id; }
+
+    public String toString() {
+        return "Job ID: " + jobID + "\nJob Title: " + jobTitle + "\nCompany: " + company + "\nDescription: " + jobDescription + "\nAddress: " + address + "\n";
+    }
+
 }

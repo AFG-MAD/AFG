@@ -4,8 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,6 +26,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
 
     private ArrayList<Job> jobs;
+    final DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
 
     @Override
@@ -42,17 +47,45 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         //Apply Adapter to Spinner
         spinner.setAdapter(adapter);
 
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+
 
         jobs = new ArrayList<Job>();
         readJobData();
-        database.child("JobListings").setValue(jobs);
+        for(Job job: jobs)
+        {
+            DatabaseReference pushedJobListing = database.child("JobListings").push();
+            job.setID(pushedJobListing.getKey());
+            pushedJobListing.setValue(job);
+        }
 
+        database.child("JobListings").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
+                Job job = dataSnapshot.getValue(Job.class);
+                System.out.println(job.toString());
+                //Instead of printing, this should insert the job listing information into the GUI
+            }
 
-        /*for(Job job: jobs) {
-            Log.d("MainActivity", job.getTitle() + " " + job.getCompany() + " " + job.getDescription() + " " + job.getAddress());
-            database.child("JobListing").setValue(job);
-        }*/
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
 
 
     }
@@ -63,17 +96,15 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         // Read data from file
         InputStream is = getResources().openRawResource(R.raw.joblist);
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        int j = 0;
-
         String line = "";
         try {
             while((line = reader.readLine()) != null) {
                 // Split by '''
 
                 String[] fields = line.split("'''");
-                Job s = new Job(fields[0], fields[1], fields[2], fields[3], j);
+                Job s = new Job(fields[0], fields[1], fields[2], fields[3], "idPlaceholder");
                 jobs.add(s);
-                j++;
+
             }
         } catch(IOException e) {
             Log.e("MainActivity", "Error reading data on line " + line);
@@ -82,6 +113,33 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
     }
 
     private void pullJobListings() {
+        database.child("JobListings").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
+                Job job = dataSnapshot.getValue(Job.class);
+                System.out.println(job);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
 
     }
 
@@ -100,3 +158,4 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
 
 }
+
