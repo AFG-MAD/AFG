@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         return jobExists;
     }
 
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
+
 
 
     //Sets dropdown category selected to the var 'selectedCategory' and dropdown radius to the var 'selectedRadius'
@@ -237,11 +237,10 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
 
     public void onNothingSelected(AdapterView<?> parent){
-        Toast.makeText(this, "Please select a radius, type in your zip code, and select a category.", Toast.LENGTH_LONG ).show();
+            Toast.makeText(this, "Please select a radius, type in your zip code, and select a category.", Toast.LENGTH_LONG).show();
 
 
-
-    }
+        }
 
 
 
