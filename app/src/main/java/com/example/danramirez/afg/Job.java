@@ -15,6 +15,7 @@ public class Job {
     private String jobDescription;
     private String address;
     private String jobID;
+    private int localID;
 
 
     public Job(){
@@ -23,14 +24,16 @@ public class Job {
         jobDescription = "Job Description";
         address = "Address";
         jobID = "Job ID";
+        localID = -1;
     }
 
-    public Job(String title, String comp, String desc, String addr, String id){
+    public Job(String title, String comp, String desc, String addr, String id, int local){
         jobTitle = title;
         company = comp;
         jobDescription = desc;
         address = addr;
         jobID = id;
+        localID = local;
     }
 
     public String getTitle(){
@@ -49,10 +52,14 @@ public class Job {
 
     public String getID() { return jobID; }
 
+    public int getlocalID() { return localID; }
+
+    public void setLocalID(int id) { localID = id; }
+
     public void setID(String id) { jobID = id; }
 
     public String toString() {
-        return "Job ID: " + jobID + "\nJob Title: " + jobTitle + "\nCompany: " + company + "\nDescription: " + jobDescription + "\nAddress: " + address + "\n";
+        return "Job ID: " + jobID + "\nLocal ID: " + localID + "\nJob Title: " + jobTitle + "\nCompany: " + company + "\nDescription: " + jobDescription + "\nAddress: " + address + "\n";
     }
 
 }

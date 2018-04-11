@@ -38,6 +38,8 @@
     </string-array>
     <string name="app_name">AFG</string>
     <string name="goButton">Go!</string>
+    <string name="HomeButton" />
+    <string name="favoritesButton" />
 
 
 </resources>

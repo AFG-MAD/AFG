@@ -9,6 +9,8 @@
 
     <EditText
         android:id="@+id/zipCodeEditText"
+        style="@android:style/Widget.AutoCompleteTextView"
+
         android:layout_width="120dp"
         android:layout_height="54dp"
         android:layout_marginBottom="8dp"
@@ -16,13 +18,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number|numberDecimal"
+        android:hint="@string/zipCodeText"
+        android:inputType="number"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/headingForDiscovery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.432" />
+        app:layout_constraintVertical_bias="0.368" />
 
     <TextView
         android:id="@+id/zipCodeText"
@@ -69,14 +73,17 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+
+
         android:prompt="@string/spinner_categories"
         app:layout_constraintBottom_toTopOf="@+id/headingForDiscovery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.829" />
+        app:layout_constraintVertical_bias="0.829"
+        android:layout_marginTop="29dp"
+        app:layout_constraintTop_toBottomOf="@+id/zipCodeEditText"/>
 
     <TextView
         android:id="@+id/descriptionText"
@@ -115,8 +122,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="8dp"
         android:text="@string/categoryText"
         app:layout_constraintBottom_toTopOf="@+id/catSpinner"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,12 +134,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    =======
-    android:layout_marginEnd="10dp"
-    android:layout_marginTop="29dp"
-    android:text="Discovery Section"
-    app:layout_constraintEnd_toStartOf="@+id/radiusEditText"
-    app:layout_constraintTop_toBottomOf="@+id/zipCodeEditText" />
 
     <ImageButton
         android:id="@+id/homeButton"
@@ -140,6 +143,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/HomeButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
@@ -157,6 +161,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
 
+        android:contentDescription="@string/favoritesButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.923"
@@ -273,7 +278,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.908" />
-    >>>>>>> Stashed changes
+        app:layout_constraintVertical_bias="0.908"
+        />
 
 </android.support.constraint.ConstraintLayout>
