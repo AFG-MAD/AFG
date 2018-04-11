@@ -7,7 +7,7 @@ import android.widget.TextView;
 public class DisplayPage extends AppCompatActivity
 {
     @Override
-            protected void onCreate(Bundle savedInstanceState)
+    protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
@@ -16,14 +16,14 @@ public class DisplayPage extends AppCompatActivity
         Bundle bundle = getIntent().getExtras();
 
         //Create heading title saying Results for "engineering" within 30 miles of 20305
-        //Need to make a getSubject from the drop down and a getRadius and a getZip
 
-       /* String subject = bundle.getSubject("subject");
-        int radius = bundle.getRadius("radius");
-        int zipcode = bundle.getZip("zipcode");
+        String category = bundle.getString("category");
+        String radius = bundle.getString("radius");
+        String zipStr = bundle.getString("zip");
 
-        TextView textResults = findViewById(R.id.textResultsHeading);
-        textResults.setText("Results for " + subject + " within " + radius + " miles of " + zipcode);*/
+        TextView textResultsHeading = findViewById(R.id.textResultsHeading);
+        textResultsHeading.setText("Results for " + category + " jobs within " + radius + " miles of " + zipStr);
+
 
 
     }

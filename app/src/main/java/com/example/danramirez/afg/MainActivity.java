@@ -1,5 +1,6 @@
 package com.example.danramirez.afg;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,9 +20,10 @@ import java.util.ArrayList;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
-
-import java.util.ArrayList;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
 
@@ -35,17 +37,40 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         setContentView(R.layout.activity_main);
 
         //Constructing the Spinner/Dropdown
-       Spinner spinner = (Spinner) findViewById(R.id.spinner);
-       spinner.setOnItemSelectedListener(this);
+       Spinner catSpinner = (Spinner) findViewById(R.id.catSpinner);
+       catSpinner.setOnItemSelectedListener(this);
 
        //Array Adapter
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categories_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> catAdapter = ArrayAdapter.createFromResource(this, R.array.categories_array, android.R.layout.simple_spinner_dropdown_item);
 
         //Specify Layout
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         //Apply Adapter to Spinner
-        spinner.setAdapter(adapter);
+        catSpinner.setAdapter(catAdapter);
+
+
+
+        //Constructing the radius Spinner/Dropdown
+        Spinner radSpinner = (Spinner) findViewById(R.id.radSpinner);
+        radSpinner.setOnItemSelectedListener(this);
+
+        //Array Adapter
+        ArrayAdapter<CharSequence> radAdapter = ArrayAdapter.createFromResource(this, R.array.radius_array, android.R.layout.simple_spinner_item);
+
+        //Specify Layout
+        radAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        //Apply Adapter to radius Spinner
+        radSpinner.setAdapter(radAdapter);
+
+
+        catSpinner.setOnItemSelectedListener(this);
+        radSpinner.setOnItemSelectedListener(this);
+
+
+
+
 
 
 
@@ -90,6 +115,29 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
     }
 
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
+
+        switch(parent.getId()){
+            case R.id.catSpinner:
+                Object category = parent.getItemAtPosition(position);
+                String selectedCategory = category.toString();
+                Log.e("MainActivity", "Category Selected: " + selectedCategory);
+                Toast.makeText(this, "Category Selected", Toast.LENGTH_LONG ).show();
+
+            case R.id.radSpinner:
+
+                Object radius = parent.getItemAtPosition(position);
+                String selectedRadius = radius.toString();
+                Log.e("MainActivity", "Radius Selected: " + selectedRadius);
+                Toast.makeText(this, "Radius Selected", Toast.LENGTH_LONG ).show();
+
+        }
+
+
+
+
+
+    }
 
 
     private void readJobData() {
@@ -143,19 +191,51 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
     }
 
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
 
-        Object category = parent.getItemAtPosition(pos);
-        String selectedCategory = category.toString();
 
-    }
+    //Sets dropdown category selected to the var 'selectedCategory' and dropdown radius to the var 'selectedRadius'
+
+
+
+
 
     public void onNothingSelected(AdapterView<?> parent){
+        Toast.makeText(this, "Please select a radius, type in your zip code, and select a category.", Toast.LENGTH_LONG ).show();
+
 
 
     }
 
 
+
+    public void displayUserInfo(View v){
+        Spinner catSpinner = (Spinner) findViewById(R.id.catSpinner);
+        String category = catSpinner.getSelectedItem().toString();
+
+        System.out.println(category);
+
+        Spinner radSpinner = (Spinner) findViewById(R.id.radSpinner);
+        String radius = radSpinner.getSelectedItem().toString();
+
+        System.out.println(radius);
+
+        EditText zipText = findViewById(R.id.zipCodeEditText);
+        String zipStr = zipText.getText().toString();
+
+        System.out.println(zipStr);
+
+        TextView resultsHeading = findViewById(R.id.textResultsHeading);
+        resultsHeading.setText("Results for " + category + " jobs within " + radius + " miles of " + zipStr);
+
+
+        Intent intent =new Intent(this, DisplayPage.class);
+        intent.putExtra("category", category);
+        intent.putExtra("radius", radius);
+        intent.putExtra("zip", zipStr);
+        startActivity(intent);
+
+
+    }
 
 }
 

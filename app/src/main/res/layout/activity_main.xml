@@ -9,12 +9,10 @@
 
     <EditText
         android:id="@+id/zipCodeEditText"
-        android:layout_width="72dp"
-        android:layout_height="22dp"
+        android:layout_width="120dp"
+        android:layout_height="54dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
@@ -24,7 +22,7 @@
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.368" />
+        app:layout_constraintVertical_bias="0.432" />
 
     <TextView
         android:id="@+id/zipCodeText"
@@ -43,20 +41,21 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="36dp"
-        android:layout_height="28dp"
-        android:layout_marginBottom="100dp"
+        android:id="@+id/catSpinner"
+        android:layout_width="89dp"
+        android:layout_height="19dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="404dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="404dp"
+
+
 
 
         android:layout_marginTop="8dp"
         android:prompt="@string/spinner_categories"
         app:layout_constraintBottom_toTopOf="@+id/headingForDiscovery"
         app:layout_constraintEnd_toEndOf="parent"
+
+
         app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -64,15 +63,12 @@
 
 
     <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginBottom="100dp"
+        android:id="@+id/radSpinner"
+        android:layout_width="110dp"
+        android:layout_height="23dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-
-
         android:layout_marginTop="8dp"
         android:prompt="@string/spinner_categories"
         app:layout_constraintBottom_toTopOf="@+id/headingForDiscovery"
@@ -119,14 +115,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="212dp"
         android:text="@string/categoryText"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintBottom_toTopOf="@+id/catSpinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintHorizontal_bias="0.935"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -139,13 +133,11 @@
     app:layout_constraintTop_toBottomOf="@+id/zipCodeEditText" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -157,15 +149,14 @@
         app:srcCompat="@android:drawable/btn_star" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/favoritesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.923"
@@ -241,7 +232,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/radiusText"
-        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        app:layout_constraintBottom_toTopOf="@+id/radSpinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
@@ -275,6 +266,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="displayUserInfo"
         android:text="@string/goButton"
         app:layout_constraintBottom_toTopOf="@+id/headingForDiscovery"
         app:layout_constraintEnd_toEndOf="parent"
