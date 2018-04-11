@@ -259,6 +259,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         EditText zipText = findViewById(R.id.zipCodeEditText);
         String zipStr = zipText.getText().toString();
 
+
         System.out.println(zipStr);
 
         TextView resultsHeading = findViewById(R.id.textResultsHeading);
