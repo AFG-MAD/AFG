@@ -27,8 +27,15 @@ public class DisplayPage extends AppCompatActivity
         String radius = bundle.getString("radius");
         String zipStr = bundle.getString("zip");
 
+        System.out.println(category);
+        System.out.println(radius);
+        System.out.println(zipStr);
+
+
+
+
         TextView textResultsHeading = findViewById(R.id.textResultsHeading);
-        textResultsHeading.setText("Results for " + category + " jobs within " + radius + " miles of " + zipStr);
+        textResultsHeading.setText("Results for " + category + " jobs within " + radius + " of " + zipStr);
 
 
 
