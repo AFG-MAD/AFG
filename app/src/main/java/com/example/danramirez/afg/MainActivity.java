@@ -244,7 +244,8 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
 
 
-    public void displayUserInfo(View v){
+    public void displayUserInfo(View v)
+    {
         Spinner catSpinner = (Spinner) findViewById(R.id.catSpinner);
         String category = catSpinner.getSelectedItem().toString();
 
@@ -261,7 +262,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
         System.out.println(zipStr);
 
-        TextView resultsHeading = findViewById(R.id.textResultsHeading);
+        TextView resultsHeading = findViewById(R.id.resultsLabel);
         resultsHeading.setText("Results for " + category + " jobs within " + radius + " miles of " + zipStr);
 
 
