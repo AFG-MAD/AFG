@@ -41,6 +41,7 @@
     <string name="HomeButton" />
     <string name="favoritesButton" />
     <string name="resultsStr">Results:</string>
+    <string name="favoritesStr">Favorites</string>
 
 
 </resources>
