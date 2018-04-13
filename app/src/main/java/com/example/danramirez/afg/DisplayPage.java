@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+/*
+ * Created by Marissa Langille on 3/27/18
+ */
+
 public class DisplayPage extends AppCompatActivity
 {
     @Override
@@ -16,6 +20,8 @@ public class DisplayPage extends AppCompatActivity
         Bundle bundle = getIntent().getExtras();
 
         //Create heading title saying Results for "engineering" within 30 miles of 20305
+        //Need to make a getSubject from the drop down and a getRadius and a getZip, this will come from the mainactivity
+
 
         String category = bundle.getString("category");
         String radius = bundle.getString("radius");

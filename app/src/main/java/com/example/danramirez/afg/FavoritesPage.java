@@ -3,6 +3,10 @@ package com.example.danramirez.afg;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+/*
+ * Created by Marissa Langille on 3/27/18
+ */
+
 public class FavoritesPage extends AppCompatActivity
 {
     protected void onCreate (Bundle savedInstanceState)
