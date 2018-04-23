@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /*
  * Created by Marissa Langille on 3/27/18
  */
@@ -37,6 +39,13 @@ public class DisplayPage extends AppCompatActivity
 
         TextView textResultsHeading = findViewById(R.id.textResultsHeading);
         textResultsHeading.setText("Results for " + category + " jobs within " + radius + " of " + zipStr);
+
+
+
+
+
+
+
 
 
 

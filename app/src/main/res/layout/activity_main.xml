@@ -14,14 +14,15 @@
 
         android:layout_width="120dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="96dp"
-        android:layout_marginTop="97dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/zipCodeText"
         android:inputType="number"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/catSpinner"
+        app:layout_constraintBottom_toTopOf="@+id/goButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,12 +30,14 @@
         android:id="@+id/zipCodeText"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginBottom="62dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
         android:text="@string/zipCodeText"
-        app:layout_constraintBottom_toBottomOf="@+id/zipCodeEditText"
-        app:layout_constraintStart_toStartOf="@+id/zipCodeEditText"
+        app:layout_constraintBottom_toTopOf="@+id/zipCodeEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
@@ -70,24 +73,34 @@
 
     <TextView
         android:id="@+id/descriptionText"
-        android:layout_width="361dp"
-        android:layout_height="41dp"
+        android:layout_width="168dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/descriptionText"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/discoveryListView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.395"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.931" />
 
     <TextView
         android:id="@+id/locationText"
-        android:layout_width="0dp"
-        android:layout_height="41dp"
+        android:layout_width="149dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="3dp"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/locationText"
-        app:layout_constraintBaseline_toBaselineOf="@+id/descriptionText"
+        app:layout_constraintBottom_toTopOf="@+id/discoveryListView"
         app:layout_constraintEnd_toEndOf="@+id/catSpinner"
-        app:layout_constraintStart_toEndOf="@+id/discoveryListView" />
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.929" />
 
     <TextView
         android:id="@+id/categoryText"
@@ -104,19 +117,25 @@
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="8dp"
         android:contentDescription="@string/HomeButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.698"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/discoveryListView"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/btn_star" />
 
     <ImageButton
         android:id="@+id/favoritesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="12dp"
         android:contentDescription="@string/favoritesButton"
         android:onClick="displayUserfaves"
         app:layout_constraintBottom_toBottomOf="@+id/favoritesLabel"
@@ -127,10 +146,13 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/app_name"
         android:textSize="15pt"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/discoveryListView" />
 
@@ -138,49 +160,35 @@
         android:id="@+id/headingForDiscovery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="18dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/textHeadingDisc"
         android:textColorLink="@android:color/holo_blue_bright"
         android:textSize="20pt"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/descriptionText"
-        app:layout_constraintStart_toStartOf="@+id/descriptionText" />
-
-    <TextView
-        android:id="@+id/textdescribeAdd"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/textAddtoFav"
-        app:layout_constraintBaseline_toBaselineOf="@+id/descriptionText"
-        app:layout_constraintEnd_toStartOf="@+id/descriptionText"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/discoveryListView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.698" />
 
     <TextView
         android:id="@+id/radiusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:layout_marginStart="42dp"
-        android:text="@string/radiusText"
-        app:layout_constraintBottom_toTopOf="@+id/radSpinner"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ListView
-        android:id="@+id/discoveryListView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="73dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="71dp"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/favoritesLabel"
-        app:layout_constraintEnd_toStartOf="@+id/favoritesLabel"
+        android:layout_marginTop="8dp"
+        android:text="@string/radiusText"
+        app:layout_constraintBottom_toTopOf="@+id/radSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textdescribeAdd" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.978" />
 
     <Button
         android:id="@+id/goButton"
@@ -191,14 +199,15 @@
         android:text="@string/goButton"
         app:layout_constraintBottom_toTopOf="@+id/headingForDiscovery"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/resultsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="376dp"
+        android:layout_marginEnd="476dp"
         android:text="@string/resultsStr"
         app:layout_constraintBottom_toTopOf="@+id/favoritesButton"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -207,10 +216,28 @@
         android:id="@+id/favoritesLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:layout_marginEnd="43dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/favoritesStr"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/discoveryListView"
+        android:layout_width="567dp"
+        android:layout_height="268dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.88" />
 
 </android.support.constraint.ConstraintLayout>

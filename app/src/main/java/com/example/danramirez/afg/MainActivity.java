@@ -73,12 +73,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
 
 
-
-
-
         readJobData();
-
-
 
 
 
@@ -112,10 +107,10 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         });
 
 
-
         JobAdapter adapter = new JobAdapter(this, jobs);
         ListView discoveryList = (ListView) findViewById(R.id.discoveryListView);
         discoveryList.setAdapter(adapter);
+
 
 
 
@@ -161,10 +156,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
                 String[] fields = line.split("'''");
                 Job s = new Job(fields[0], fields[1], fields[2], fields[3], "idPlaceholder", Integer.parseInt(fields[4]));
                 jobs.add(s);
-                System.out.println("Job Title:" + s.getTitle());
-                System.out.println("Job Company:" + s.getCompany());
-                System.out.println("Job Address:" + s.getAddress());
-                System.out.println("Job Description:" + s.getDescription());
+
             }
         } catch(IOException e) {
             Log.e("MainActivity", "Error reading data on line " + line);
