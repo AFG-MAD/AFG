@@ -42,6 +42,10 @@
     <string name="favoritesButton" />
     <string name="resultsStr">Results:</string>
     <string name="favoritesStr">Favorites</string>
+    <string name="titleTextView" />
+    <string name="companyTextView" />
+    <string name="descriptionTextView" />
+    <string name="addressTextView" />
 
 
 </resources>

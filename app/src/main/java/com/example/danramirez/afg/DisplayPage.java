@@ -2,6 +2,7 @@ package com.example.danramirez.afg;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ListView;
 import android.widget.TextView;
 
 /*
@@ -40,6 +41,9 @@ public class DisplayPage extends AppCompatActivity
 
 
     }
+
+
+
 
 
 }
