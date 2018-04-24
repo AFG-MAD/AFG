@@ -22,6 +22,14 @@ public class DisplayPage extends AppCompatActivity
         //Get the intent that started this display and extract the data
         Bundle bundle = getIntent().getExtras();
 
+
+
+        ArrayList<Job> jobs = (ArrayList<Job>) getIntent().getSerializableExtra("jobs");
+
+        JobAdapter adapter = new JobAdapter(this, jobs);
+        ListView displayList = (ListView) findViewById(R.id.displayListView);
+        displayList.setAdapter(adapter);
+
         //Create heading title saying Results for "engineering" within 30 miles of 20305
         //Need to make a getSubject from the drop down and a getRadius and a getZip, this will come from the mainactivity
 
@@ -39,6 +47,9 @@ public class DisplayPage extends AppCompatActivity
 
         TextView textResultsHeading = findViewById(R.id.textResultsHeading);
         textResultsHeading.setText("Results for " + category + " jobs within " + radius + " of " + zipStr);
+
+
+
 
 
 

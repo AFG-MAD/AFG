@@ -44,11 +44,7 @@
         android:id="@+id/catSpinner"
         android:layout_width="0dp"
         android:layout_height="19dp"
-
-
         android:layout_marginEnd="13dp"
-
-
         android:layout_marginStart="12dp"
         android:prompt="@string/spinner_categories"
         app:layout_constraintBottom_toBottomOf="@+id/goButton"
@@ -195,7 +191,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:onClick="displayUserInfo"
+        android:onClick="displayUserInfoSearch"
         android:text="@string/goButton"
         app:layout_constraintBottom_toTopOf="@+id/headingForDiscovery"
         app:layout_constraintEnd_toEndOf="parent"

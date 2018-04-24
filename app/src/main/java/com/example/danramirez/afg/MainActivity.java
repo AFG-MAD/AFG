@@ -107,9 +107,15 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         });
 
 
+
+
+
+
         JobAdapter adapter = new JobAdapter(this, jobs);
         ListView discoveryList = (ListView) findViewById(R.id.discoveryListView);
         discoveryList.setAdapter(adapter);
+
+
 
 
 
@@ -248,7 +254,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
 
 
-    public void displayUserInfo(View v){
+    public void displayUserInfoSearch(View v){
         Spinner catSpinner = (Spinner) findViewById(R.id.catSpinner);
         String category = catSpinner.getSelectedItem().toString();
 
@@ -273,10 +279,14 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         intent.putExtra("category", category);
         intent.putExtra("radius", radius);
         intent.putExtra("zip", zipStr);
+        intent.putExtra("jobs", jobs);
         startActivity(intent);
 
 
+
     }
+
+
     public void displayUserfaves(View v)
     {
         Spinner catSpinner = (Spinner) findViewById(R.id.catSpinner);

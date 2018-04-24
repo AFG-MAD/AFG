@@ -5,11 +5,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
+
 /**
  * Created by danramirez on 3/28/18.
  */
 
-public class Job {
+public class Job implements Serializable{
     private String jobTitle;
     private String company;
     private String jobDescription;
