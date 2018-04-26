@@ -12,56 +12,66 @@ import java.io.Serializable;
  */
 
 public class Job implements Serializable{
-    private String jobTitle;
+    private String title;
     private String company;
-    private String jobDescription;
+    private String description;
     private String address;
     private String jobID;
     private int localID;
 
 
     public Job(){
-        jobTitle = "Job Title";
+        title = "Job Title";
         company = "Company";
-        jobDescription = "Job Description";
+        description = "Job Description";
         address = "Address";
         jobID = "Job ID";
         localID = -1;
     }
 
     public Job(String title, String comp, String desc, String addr, String id, int local){
-        jobTitle = title;
+        title = title;
         company = comp;
-        jobDescription = desc;
+        description = desc;
         address = addr;
         jobID = id;
         localID = local;
     }
 
     public String getTitle(){
-        return jobTitle;
+        return title;
     }
 
+    public void setTitle(String jobTitle) { title = jobTitle; }
+
     public String getDescription(){
-        return jobDescription;
+        return description;
     }
+
+    public void setDescription(String desc) { description = desc; }
 
     public String getAddress(){
         return address;
     }
 
+    public void setAddress(String addr) { address = addr; }
+
     public String getCompany() { return company; }
 
+    public void setCompany(String comp) { company = comp; }
+
     public String getID() { return jobID; }
+
+    public void setID(String id) { jobID = id; }
 
     public int getlocalID() { return localID; }
 
     public void setLocalID(int id) { localID = id; }
 
-    public void setID(String id) { jobID = id; }
+
 
     public String toString() {
-        return "Job ID: " + jobID + "\nLocal ID: " + localID + "\nJob Title: " + jobTitle + "\nCompany: " + company + "\nDescription: " + jobDescription + "\nAddress: " + address + "\n";
+        return "Job ID: " + jobID + "\nLocal ID: " + localID + "\nJob Title: " + title + "\nCompany: " + company + "\nDescription: " + description + "\nAddress: " + address + "\n";
     }
 
 }

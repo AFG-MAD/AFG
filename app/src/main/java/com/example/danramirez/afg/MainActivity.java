@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private Job placeholder;
     private int idPlaceholder;
-    private FirebaseRecyclerAdapter mFirebaseAdapter;
     private DatabaseReference mJobReference;
 
 
