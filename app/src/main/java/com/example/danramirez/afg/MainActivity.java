@@ -3,8 +3,10 @@ package com.example.danramirez.afg;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,8 +32,13 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
 
     private ArrayList<Job> jobs;
-    final DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-    boolean jobExists;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private Job placeholder;
+    private int idPlaceholder;
+    private FirebaseRecyclerAdapter mFirebaseAdapter;
+    private DatabaseReference mJobReference;
+
+
 
 
     @Override
@@ -71,54 +78,15 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         catSpinner.setOnItemSelectedListener(this);
         radSpinner.setOnItemSelectedListener(this);
 
+        System.out.println("Reference: "+database.getReference().child("JobListings"));
 
 
         readJobData();
 
 
-
-        database.child("JobListings").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-                Job job = dataSnapshot.getValue(Job.class);
-                //System.out.println(job.toString());
-                //Instead of printing, this should insert the job listing information into the GUI
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
-
-
-
-
-
-
         JobAdapter adapter = new JobAdapter(this, jobs);
         ListView discoveryList = (ListView) findViewById(R.id.discoveryListView);
         discoveryList.setAdapter(adapter);
-
-
-
-
-
 
     }
 
@@ -132,18 +100,11 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
                 Toast.makeText(this, "Category Selected", Toast.LENGTH_LONG ).show();
 
             case R.id.radSpinner:
-
                 Object radius = parent.getItemAtPosition(position);
                 String selectedRadius = radius.toString();
                 Log.e("MainActivity", "Radius Selected: " + selectedRadius);
                 Toast.makeText(this, "Radius Selected", Toast.LENGTH_LONG ).show();
-
         }
-
-
-
-
-
     }
 
 
@@ -158,7 +119,6 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         try {
             while((line = reader.readLine()) != null) {
                 // Split by '''
-
                 String[] fields = line.split("'''");
                 Job s = new Job(fields[0], fields[1], fields[2], fields[3], "idPlaceholder", Integer.parseInt(fields[4]));
                 jobs.add(s);
@@ -172,74 +132,54 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         for(Job job: jobs)
         {
             System.out.println("Checking for job " + job.getlocalID());
-            if(!findJobByApiID(job.getlocalID()))
+            idPlaceholder = job.getlocalID();
+            findJobByApiID();
+            /*if(placeholder.equals(job))
             {
-                DatabaseReference pushedJobListing = database.child("JobListings").push();
-                job.setID(pushedJobListing.getKey());
+                System.out.println("Job found in DB. Not adding.");
+            }
+            else{
+                System.out.println("Job not found - adding it to database now");
+                DatabaseReference pushedJobListing = database.getReference().child("JobListings").child(Integer.toString(job.getlocalID()));
                 pushedJobListing.setValue(job);
-            }
-            else
-                System.out.println("Job " + job.getlocalID() + " already exists in the database.");
-
+            }*/
         }
-
     }
 
-    private void pullJobListings() {
-        database.child("JobListings").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-                Job job = dataSnapshot.getValue(Job.class);
-                System.out.println(job);
-            }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
-
-    }
-
-    public boolean findJobByApiID(int ApiID)
+    public void findJobByApiID()
     {
-        jobExists = false;
-        Query resultList = database.child("JobListings").orderByChild("localID").equalTo(ApiID).getRef();
-        System.out.println("Query Resultset: " + resultList.toString());
+        DatabaseReference resultList = database.getReferenceFromUrl("https://afg-db.firebaseio.com/JobListings");
+        System.out.println("Got into findJobByApiID method");
         resultList.addListenerForSingleValueEvent(new ValueEventListener() {
-
             @Override
+            //FIREBASERECYCLERADAPTER
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Job queryResult = dataSnapshot.getValue(Job.class);
-                System.out.println("Query result as a job object: " + queryResult);
-                if(queryResult != null) {
-                    jobExists = true;
+                System.out.println("Made it in for:each");
+                for(DataSnapshot ds : dataSnapshot.getChildren())
+                {
+                    System.out.println("Inside for loop");
+                    Job job = ds.getValue(Job.class);
+                    if(job.getlocalID() == idPlaceholder)
+                    {
+                        System.out.println("Found job in database -  do not add it!");
+                        System.out.println("Setting placeholder to job object");
+                        placeholder = job;
+
+                    }
+                    else{
+                        System.out.println("Else");
+
+                    }
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
-        System.out.println("FindJob Method: jobExists evaluted to: " + jobExists); //ALWAYS FALSE - NEEDS FIX
-        return jobExists;
     }
+
 
 
 
@@ -304,11 +244,6 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
 
     }
-
-
-
-
-
 
 
 

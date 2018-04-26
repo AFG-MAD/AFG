@@ -29,10 +29,8 @@ public class JobAdapter extends ArrayAdapter<Job> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.job, parent, false);
 
         }
-
-
-
         //Lookup view for data population
+
 
         TextView titleTextView = (TextView) convertView.findViewById(R.id.titleTextView);
         TextView companyTextView = (TextView) convertView.findViewById(R.id.companyTextView);
@@ -48,6 +46,7 @@ public class JobAdapter extends ArrayAdapter<Job> {
         //Return the completed view to render on screen
 
         return convertView;
+
 
 
     }
