@@ -1,13 +1,14 @@
 package com.example.danramirez.afg;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -46,13 +47,12 @@ public class DisplayPage extends AppCompatActivity
         String category = bundle.getString("category");
         String radius = bundle.getString("radius");
         String zipStr = bundle.getString("zip");
-
         System.out.println(category);
         System.out.println(radius);
         System.out.println(zipStr);
 
         TextView textResultsHeading = findViewById(R.id.textResultsHeading);
-        textResultsHeading.setText("Results for " + category + " jobs within " + radius + " of " + zipStr);
+        textResultsHeading.setText("Results for " + category + " related jobs within " + radius + " of " + zipStr);
 
         setUpFirebaseAdapter(displayList);
     }
@@ -69,6 +69,22 @@ public class DisplayPage extends AppCompatActivity
         };
         listView.setAdapter(mFirebaseAdapter);
     }
+    public void displayUserfaves(View v)
+    {
+        Spinner catSpinner = (Spinner) findViewById(R.id.catSpinner);
+        String category = catSpinner.getSelectedItem().toString();
 
+        System.out.println(category);
+
+        TextView resultsHeading = findViewById(R.id.favoritesLabel);
+        resultsHeading.setText("Favorites");
+
+
+        Intent intent =new Intent(this, FavoritesPage.class);
+        intent.putExtra("favorites",category);
+        startActivity(intent);
+
+
+    }
 
 }
