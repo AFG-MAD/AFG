@@ -13,7 +13,7 @@
     <TextView
 
         android:id="@+id/companyTextView"
-        android:layout_width="141dp"
+        android:layout_width="139dp"
         android:layout_height="58dp"
         android:text="@string/companyTextView" />
 

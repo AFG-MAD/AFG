@@ -57,6 +57,7 @@ public class DisplayPage extends AppCompatActivity
         setUpFirebaseAdapter(displayList);
     }
 
+
     private void setUpFirebaseAdapter(ListView listView) {
         mFirebaseAdapter = new FirebaseListAdapter<Job>(this, Job.class, R.layout.job, mJobReference) {
             @Override
@@ -86,5 +87,12 @@ public class DisplayPage extends AppCompatActivity
 
 
     }
+
+    public void returnToHome(View v){
+        finish();
+
+
+    }
+
 
 }

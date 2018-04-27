@@ -2,6 +2,7 @@ package com.example.danramirez.afg;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 /*
@@ -24,6 +25,13 @@ public class FavoritesPage extends AppCompatActivity
         TextView textResultsHeading = findViewById(R.id.favoritesText);
         textResultsHeading.setText("Favorites");
     }
+
+
+    public void returnToHome(View v){
+        finish();
+    }
+
+
 
 
 }

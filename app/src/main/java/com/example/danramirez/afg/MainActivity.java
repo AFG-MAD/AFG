@@ -244,6 +244,11 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
     }
 
 
+    public void returnToHome(View v){
+        finish();
+    }
+
+
 
 
 

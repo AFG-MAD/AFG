@@ -11,7 +11,7 @@
     <string name="textAddtoFav">Add To Favorites</string>
     <string name="textDiscoveryHeading" />
     <string name="textHeadingDisc">Discovery Page</string>
-    <string name="textResultsHeading">Results</string>
+    <string name="textResultsHeading">Results:</string>
 
 
     //Dropdown Category Choices
@@ -40,7 +40,7 @@
     <string name="goButton">Go!</string>
     <string name="HomeButton" />
     <string name="favoritesButton" />
-    <string name="resultsStr">Results:</string>
+    <string name="resultsStr">Discover jobs you might like!</string>
     <string name="favoritesStr">Favorites</string>
     <string name="titleTextView" />
     <string name="companyTextView" />
