@@ -46,6 +46,7 @@
     <string name="companyTextView" />
     <string name="descriptionTextView" />
     <string name="addressTextView" />
+    <string name="addToFavorites">Add</string>
 
 
 </resources>

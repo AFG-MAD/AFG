@@ -17,6 +17,8 @@ import java.util.ArrayList;
 public class JobAdapter extends ArrayAdapter<Job> {
     public JobAdapter(Context context, ArrayList<Job> jobs){
         super(context, 0, jobs);
+        ArrayList<Job> favorites = new ArrayList<Job>();
+
 
     }
 
@@ -46,6 +48,13 @@ public class JobAdapter extends ArrayAdapter<Job> {
         //Return the completed view to render on screen
 
         return convertView;
+
+
+
+    }
+
+
+    public void addToFavorites(View v){
 
 
 
