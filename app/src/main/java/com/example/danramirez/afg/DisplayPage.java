@@ -72,27 +72,23 @@ public class DisplayPage extends AppCompatActivity
     }
     public void displayUserfaves(View v)
     {
-        Spinner catSpinner = (Spinner) findViewById(R.id.catSpinner);
-        String category = catSpinner.getSelectedItem().toString();
+        TextView favesText = findViewById(R.id.favoritesLabel);
+        favesText.setText("Favorites");
 
-        System.out.println(category);
-
-        TextView resultsHeading = findViewById(R.id.favoritesLabel);
-        resultsHeading.setText("Favorites");
-
-
-        Intent intent =new Intent(this, FavoritesPage.class);
-        intent.putExtra("favorites",category);
+        Intent intent = new Intent(this, FavoritesPage.class);
         startActivity(intent);
-
-
     }
 
-    public void returnToHome(View v){
-        finish();
 
+    public void returnToHome(View v)
+    {
+        TextView favesText = findViewById(R.id.homeLabel);
+        favesText.setText("Home");
 
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
+
 
 
 }

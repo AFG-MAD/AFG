@@ -46,7 +46,13 @@
     <string name="companyTextView" />
     <string name="descriptionTextView" />
     <string name="addressTextView" />
+    <string name="faveButton">Favorites</string>
+    <string name="homeButton">Home</string>
     <string name="addToFavorites">Add</string>
+    <string name="favesText" />
+    <string name="homeText" >Home</string>/>
+    <string name="nameApp">AFG</string>
+    <string name="appName">AFG</string>
 
 
 </resources>

@@ -1,5 +1,6 @@
 package com.example.danramirez.afg;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,19 +19,25 @@ public class FavoritesPage extends AppCompatActivity
 
         //get the intent that started this activity and extract the data
         Bundle bundle = getIntent().getExtras();
-
-        //Place favorites in the list
-        String zipStr = bundle.getString("favorites");
-
-        TextView textResultsHeading = findViewById(R.id.favoritesText);
-        textResultsHeading.setText("Favorites");
+        TextView favoritesText = findViewById(R.id.favoritesText);
+        favoritesText.setText("Favorites");
     }
+    public void displayUserfaves(View v)
+    {
+        TextView favesText = findViewById(R.id.favoritesLabel);
+        favesText.setText("Favorites");
 
-
-    public void returnToHome(View v){
-        finish();
+        Intent intent = new Intent(this, FavoritesPage.class);
+        startActivity(intent);
     }
+    public void returnToHome(View v)
+    {
+        TextView favesText = findViewById(R.id.homeLabel);
+        favesText.setText("Home");
 
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 
 
 
