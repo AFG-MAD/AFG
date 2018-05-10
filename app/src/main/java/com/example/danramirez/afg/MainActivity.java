@@ -27,6 +27,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/*
+ * Created by Dan Ramirez
+ * This page employs two drop downs and three buttons to narrow down the job search and direct the user to other pages.
+ */
+
 public class MainActivity extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
 
     private ArrayList<Job> jobs;
@@ -88,6 +93,13 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
     }
 
+    /**
+     * @param parent
+     * @param view
+     * @param position
+     * @param id
+     * Creates the dropdown for the category and the radius.
+     */
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
 
         switch(parent.getId()){
@@ -100,14 +112,14 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
             case R.id.radSpinner:
                 Object radius = parent.getItemAtPosition(position);
                 String selectedRadius = radius.toString();
-                Log.e("MainActivity", "Radius Selected: " + selectedRadius);
-                Toast.makeText(this, "Radius Selected", Toast.LENGTH_LONG ).show();
+                Log.e("MainActivity", "State Selected: " + selectedRadius);
+                Toast.makeText(this, "State Selected", Toast.LENGTH_LONG ).show();
         }
     }
 
-
-
-
+    /**
+     *
+     */
     private void readJobData() {
         // Read data from file
         jobs = new ArrayList<Job>();
@@ -144,7 +156,9 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         }
     }
 
-
+    /**
+     *
+     */
     public void findJobByApiID()
     {
         DatabaseReference resultList = database.getReferenceFromUrl("https://afg-db.firebaseio.com/JobListings");
@@ -179,19 +193,21 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
     }
 
 
-
-
-
-
-
+    /**
+     * This is put in place in case a category and a state is not selected.
+     * @param parent
+     */
     public void onNothingSelected(AdapterView<?> parent){
-            Toast.makeText(this, "Please select a radius, type in your zip code, and select a category.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please select a state and select a category.", Toast.LENGTH_LONG).show();
 
 
         }
 
-
-
+    /**
+     * DisplayUserInfoSearch connects the discovery page to the display page.
+     * Takes the state [radius] and category and parses through the data to display pertinent job listings.
+     * @param v
+     */
     public void displayUserInfoSearch(View v)
     {
         Spinner catSpinner = (Spinner) findViewById(R.id.catSpinner);
@@ -219,7 +235,11 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
     }
 
-
+    /**
+     * displayUserfaves attaches the discovery page to the favorites page.
+     * This makes sure the button works when clicked.
+     * @param v
+     */
     public void displayUserfaves(View v)
     {
         TextView favesText = findViewById(R.id.favoritesLabel);
@@ -229,7 +249,11 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         startActivity(intent);
     }
 
-
+    /**
+     * returnToHome connects the discovery page with the discovery page.
+     * This makes sure the button works when clicked.
+     * @param v
+     */
     public void returnToHome(View v)
     {
         TextView favesText = findViewById(R.id.homeLabel);
@@ -240,7 +264,9 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
     }
 
 
-
+    /**
+     *
+     */
     public void addToFavorites(){
 
 

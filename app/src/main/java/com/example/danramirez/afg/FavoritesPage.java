@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 /*
  * Created by Marissa Langille on 3/27/18
+ * Intended to display the job listings the user "adds" via the Add button
  */
 
 public class FavoritesPage extends AppCompatActivity
@@ -22,6 +23,13 @@ public class FavoritesPage extends AppCompatActivity
         TextView favoritesText = findViewById(R.id.favoritesText);
         favoritesText.setText("Favorites");
     }
+
+    /**
+     * displayUserfaves attaches the favorites page to the favorites page.
+     * This makes sure the button works when clicked.
+     * @param v
+     */
+
     public void displayUserfaves(View v)
     {
         TextView favesText = findViewById(R.id.favoritesLabel);
@@ -30,6 +38,13 @@ public class FavoritesPage extends AppCompatActivity
         Intent intent = new Intent(this, FavoritesPage.class);
         startActivity(intent);
     }
+
+    /**
+     * returnToHome connects the favorites page with the discovery page.
+     * This makes sure the button works when clicked.
+     * @param v
+     */
+
     public void returnToHome(View v)
     {
         TextView favesText = findViewById(R.id.homeLabel);
