@@ -16,12 +16,13 @@ import java.util.ArrayList;
 
 /*
  * Created by Marissa Langille on 3/27/18
+ * Intended to display the job lists taken from the data base. These jobs are selected based on the state and category selected.
  */
 
 public class DisplayPage extends AppCompatActivity
 {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private FirebaseListAdapter<Job> mFirebaseAdapter;
+    private FirebaseListAdapter<NewJob> mFirebaseAdapter;
     private DatabaseReference mJobReference = database.getReference().child("JobListings");
 
     @Override
@@ -55,19 +56,28 @@ public class DisplayPage extends AppCompatActivity
         setUpFirebaseAdapter(displayList);
     }
 
-
+    /**
+     *
+     * @param listView this displays the jobs
+     */
     private void setUpFirebaseAdapter(ListView listView) {
-        mFirebaseAdapter = new FirebaseListAdapter<Job>(this, Job.class, R.layout.job, mJobReference) {
+        mFirebaseAdapter = new FirebaseListAdapter<NewJob>(this, NewJob.class, R.layout.job, mJobReference) {
             @Override
-            protected void populateView(View v, Job model, int position) {
-                ((TextView)v.findViewById(R.id.companyTextView)).setText(model.getCompany());
-                ((TextView)v.findViewById(R.id.descriptionTextView)).setText(model.getDescription());
-                ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getTitle());
-                ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getAddress());
+            protected void populateView(View v, NewJob model, int position) {
+                ((TextView)v.findViewById(R.id.companyTextView)).setText(model.getCompanyName());
+                ((TextView)v.findViewById(R.id.descriptionTextView)).setText(model.getJobText());
+                ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getJobTitle());
+                ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getJobLocation());
             }
         };
         listView.setAdapter(mFirebaseAdapter);
     }
+
+    /**
+     * displayUserfaves attaches the display page to the favorites page.
+     * This makes sure the button works when clicked.
+     * @param v uses a label to connect them
+     */
     public void displayUserfaves(View v)
     {
         TextView favesText = findViewById(R.id.favoritesLabel);
@@ -77,16 +87,18 @@ public class DisplayPage extends AppCompatActivity
         startActivity(intent);
     }
 
-
+    /**
+     * returnToHome connects the display page with the discovery page.
+     * This makes sure the button works when clicked.
+     * @param v uses a label to connect them
+     */
     public void returnToHome(View v)
     {
         TextView favesText = findViewById(R.id.homeLabel);
         favesText.setText("Home");
-
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
 
 
 }

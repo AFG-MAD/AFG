@@ -99,6 +99,7 @@
     <string name="homeText" >Home</string>/>
     <string name="nameApp">AFG</string>
     <string name="appName">AFG</string>
+    <string name="title_activity_dbpopulator" />
 
 
 </resources>

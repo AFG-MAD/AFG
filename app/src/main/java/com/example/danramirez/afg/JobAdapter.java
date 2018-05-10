@@ -24,28 +24,18 @@ import static com.example.danramirez.afg.FavoritesPage.removeFavorite;
  * Created by Anna Hazelwood on 4/18/2018.
  */
 
-//Used tutorial from https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
-
-public class JobAdapter extends ArrayAdapter<Job> {
-
-    public JobAdapter(Context context, ArrayList<Job> jobs){
+public class JobAdapter extends ArrayAdapter<NewJob> {
+    public JobAdapter(Context context, ArrayList<NewJob> jobs){
         super(context, 0, jobs);
-        final ArrayList<Job> favorites = new ArrayList<Job>();
+        ArrayList<NewJob> favorites = new ArrayList<NewJob>();
+
 
     }
-
-    /*
-    public ArrayList<Job> getArrayList (){
-
-        return favorites;
-    }
-    */
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent){
         //Get the data item for this position
-        final Job job = getItem(position);
-
+        NewJob job = getItem(position);
         //Check if an existing view is being reused, otherwise inflate the view
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.job, parent, false);
@@ -60,10 +50,10 @@ public class JobAdapter extends ArrayAdapter<Job> {
         TextView addressTextView = (TextView) convertView.findViewById(R.id.addressTextView);
 
         //Populate the data into the template view using the data object
-        titleTextView.setText(job.getTitle());
-        companyTextView.setText(job.getCompany());
-        descriptionTextView.setText(job.getDescription());
-        addressTextView.setText(job.getAddress());
+        titleTextView.setText(job.getJobTitle());
+        companyTextView.setText(job.getCompanyName());
+        descriptionTextView.setText(job.getJobText());
+        addressTextView.setText(job.getJobLocation());
 
 
 
@@ -139,7 +129,11 @@ public class JobAdapter extends ArrayAdapter<Job> {
     }
 
 
+    public void addToFavorites(View v){
 
+
+
+    }
 
 
 
