@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 public class Controller extends Application {
 
-    private ArrayList<Job> favorites = new ArrayList<Job>();
+    private ArrayList<NewJob> favorites = new ArrayList<NewJob>();
 
-    public ArrayList<Job> getFavorites(){
+    public ArrayList<NewJob> getFavorites(){
         return favorites;
     }
 

@@ -1,24 +1,16 @@
 package com.example.danramirez.afg;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
-import android.app.Application;
-
 import java.util.ArrayList;
 
-import static com.example.danramirez.afg.FavoritesPage.addFavorite;
-import static com.example.danramirez.afg.FavoritesPage.removeFavorite;
+
 
 /**
  * Created by Anna Hazelwood on 4/18/2018.
@@ -27,15 +19,13 @@ import static com.example.danramirez.afg.FavoritesPage.removeFavorite;
 public class JobAdapter extends ArrayAdapter<NewJob> {
     public JobAdapter(Context context, ArrayList<NewJob> jobs){
         super(context, 0, jobs);
-        ArrayList<NewJob> favorites = new ArrayList<NewJob>();
-
 
     }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent){
         //Get the data item for this position
-        NewJob job = getItem(position);
+        final NewJob njob = getItem(position);
         //Check if an existing view is being reused, otherwise inflate the view
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.job, parent, false);
@@ -50,58 +40,48 @@ public class JobAdapter extends ArrayAdapter<NewJob> {
         TextView addressTextView = (TextView) convertView.findViewById(R.id.addressTextView);
 
         //Populate the data into the template view using the data object
-        titleTextView.setText(job.getJobTitle());
-        companyTextView.setText(job.getCompanyName());
-        descriptionTextView.setText(job.getJobText());
-        addressTextView.setText(job.getJobLocation());
+        titleTextView.setText(njob.getJobTitle());
+        companyTextView.setText(njob.getCompanyName());
+        descriptionTextView.setText(njob.getJobText());
+        addressTextView.setText(njob.getJobLocation());
+        System.out.println("LIST VIEW POPULATED");
 
 
 
         final Controller aController = (Controller)getContext().getApplicationContext();
-        if(aController==null){
-            System.out.println("Object Null");
-        }
 
-        //final ArrayList<Job> favorites = new ArrayList<Job>();
+       /*
+        if(aController==null){
+            System.out.println("CONTROLLER OBJECT NULL");
+        }
+        */
+
         // Code adapted from https://stackoverflow.com/questions/34980309/favourite-button-android
-        //final Controller aController = new Controller();
+
         final ToggleButton favoriteToggle = (ToggleButton) convertView.findViewById(R.id.addToFavorites);
         favoriteToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
 
 
-
-
                 if(isChecked) {
-                   /*
 
-                   System.out.println(buttonView);
-                    addFavorite(buttonView, favorites, job);
-                    System.out.println(favorites.toString());
-                    */
-                    favoriteToggle.setChecked(isChecked);
+
                     System.out.println("JOB TOGGLE CHECKED");
-                   aController.getFavorites().add(job);
+                   aController.getFavorites().add(njob);
 
                    System.out.println(aController.getFavorites().toString());
+                    //favoriteToggle.setChecked(isChecked);
 
-                  /*
-                   Intent intent = new Intent(JobAdapter.this, FavoritesPage.class);
-                   startActivity(intent);
-                   */
 
                 }
                 else{
 
                     System.out.println("JOB TOGGLE UNCHECKED");
-                    aController.getFavorites().remove(job);
+
                     System.out.println(aController.getFavorites().toString());
+                    aController.getFavorites().remove(njob);
 
-
-                    /*
-
-                    removeFavorite(buttonView, favorites, job);
-                    */
                 }
 
 
@@ -128,12 +108,6 @@ public class JobAdapter extends ArrayAdapter<NewJob> {
 
     }
 
-
-    public void addToFavorites(View v){
-
-
-
-    }
 
 
 

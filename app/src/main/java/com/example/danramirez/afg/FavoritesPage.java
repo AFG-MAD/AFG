@@ -28,9 +28,9 @@ public class FavoritesPage extends AppCompatActivity
         favoritesText.setText("Favorites");
 
         final Controller aController = (Controller)getApplicationContext();
-        ArrayList<Job> favorites = aController.getFavorites();
+        ArrayList<NewJob> favorites = aController.getFavorites();
         System.out.println(favorites.toString());
-        JobAdapter adapter = new JobAdapter(this, favorites);
+        FavoritesAdapter adapter = new FavoritesAdapter(this, favorites);
         ListView favoritesList = (ListView) findViewById(R.id.favoritesList);
         favoritesList.setAdapter(adapter);
 
@@ -70,14 +70,6 @@ public class FavoritesPage extends AppCompatActivity
     }
 
 
-
-    public static void addFavorite(CompoundButton buttonView, ArrayList<Job> favorites, Job j){
-        favorites.add(j);
-    }
-
-    public static void removeFavorite(CompoundButton buttonView, ArrayList<Job> favorites, Job j){
-        favorites.remove(j);
-    }
 
 
 }

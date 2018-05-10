@@ -123,4 +123,9 @@ public class NewJob implements Serializable {
     public String getUrl() {
         return url;
     }
+
+    public String toString(){
+        return "Unique id: " + uniqID + "\nURL: " + url + "\nCompany Name: " + companyName + "\nCountry: " + geo + "\nJob Title: " + jobTitle + "\nLocation" + jobLocation +"\nJob Description" + jobText;
+    }
 }
+
