@@ -78,7 +78,6 @@ public class DisplayPage extends AppCompatActivity
      * This makes sure the button works when clicked.
      * @param v uses a label to connect them
      */
-
     public void displayUserfaves(View v)
     {
         TextView favesText = findViewById(R.id.favoritesLabel);
@@ -93,18 +92,13 @@ public class DisplayPage extends AppCompatActivity
      * This makes sure the button works when clicked.
      * @param v uses a label to connect them
      */
-
     public void returnToHome(View v)
     {
         TextView favesText = findViewById(R.id.homeLabel);
         favesText.setText("Home");
-
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
-
-
 
 
 }
