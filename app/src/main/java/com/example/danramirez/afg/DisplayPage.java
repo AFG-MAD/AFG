@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 /*
  * Created by Marissa Langille on 3/27/18
+ * Intended to display the job lists taken from the data base. These jobs are selected based on the state and category selected.
  */
 
 public class DisplayPage extends AppCompatActivity
@@ -55,7 +56,10 @@ public class DisplayPage extends AppCompatActivity
         setUpFirebaseAdapter(displayList);
     }
 
-
+    /**
+     *
+     * @param listView this displays the jobs
+     */
     private void setUpFirebaseAdapter(ListView listView) {
         mFirebaseAdapter = new FirebaseListAdapter<NewJob>(this, NewJob.class, R.layout.job, mJobReference) {
             @Override
@@ -68,6 +72,13 @@ public class DisplayPage extends AppCompatActivity
         };
         listView.setAdapter(mFirebaseAdapter);
     }
+
+    /**
+     * displayUserfaves attaches the display page to the favorites page.
+     * This makes sure the button works when clicked.
+     * @param v uses a label to connect them
+     */
+
     public void displayUserfaves(View v)
     {
         TextView favesText = findViewById(R.id.favoritesLabel);
@@ -77,6 +88,11 @@ public class DisplayPage extends AppCompatActivity
         startActivity(intent);
     }
 
+    /**
+     * returnToHome connects the display page with the discovery page.
+     * This makes sure the button works when clicked.
+     * @param v uses a label to connect them
+     */
 
     public void returnToHome(View v)
     {
