@@ -82,7 +82,7 @@
 
 
     </string-array>
-    <string name="app_name">AFG</string>
+    <string name="app_name">FireJob</string>
     <string name="goButton">Go!</string>
     <string name="HomeButton" />
     <string name="favoritesButton" />
@@ -97,8 +97,8 @@
     <string name="addToFavorites">Add</string>
     <string name="favesText" />
     <string name="homeText" >Home</string>/>
-    <string name="nameApp">AFG</string>
-    <string name="appName">AFG</string>
+    <string name="nameApp">FireJob</string>
+    <string name="appName">FireJob</string>
     <string name="title_activity_dbpopulator" />
 
 
