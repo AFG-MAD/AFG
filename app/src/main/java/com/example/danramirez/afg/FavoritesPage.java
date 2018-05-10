@@ -27,7 +27,7 @@ public class FavoritesPage extends AppCompatActivity
     /**
      * displayUserfaves attaches the favorites page to the favorites page.
      * This makes sure the button works when clicked.
-     * @param v
+     * @param v uses a label to connect them
      */
 
     public void displayUserfaves(View v)
@@ -42,7 +42,7 @@ public class FavoritesPage extends AppCompatActivity
     /**
      * returnToHome connects the favorites page with the discovery page.
      * This makes sure the button works when clicked.
-     * @param v
+     * @param v uses a label to connect them
      */
 
     public void returnToHome(View v)

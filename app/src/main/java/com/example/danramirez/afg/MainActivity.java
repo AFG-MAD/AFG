@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
     /**
      * DisplayUserInfoSearch connects the discovery page to the display page.
      * Takes the state [radius] and category and parses through the data to display pertinent job listings.
-     * @param v
+     * @param v uses a label to connect them
      */
     public void displayUserInfoSearch(View v)
     {
@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
     /**
      * displayUserfaves attaches the discovery page to the favorites page.
      * This makes sure the button works when clicked.
-     * @param v
+     * @param v uses a label to connect them
      */
     public void displayUserfaves(View v)
     {
@@ -252,7 +252,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
     /**
      * returnToHome connects the discovery page with the discovery page.
      * This makes sure the button works when clicked.
-     * @param v
+     * @param v uses a label to connect them
      */
     public void returnToHome(View v)
     {

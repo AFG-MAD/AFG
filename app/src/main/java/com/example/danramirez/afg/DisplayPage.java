@@ -58,7 +58,7 @@ public class DisplayPage extends AppCompatActivity
 
     /**
      *
-     * @param listView
+     * @param listView this displays the jobs
      */
     private void setUpFirebaseAdapter(ListView listView) {
         mFirebaseAdapter = new FirebaseListAdapter<Job>(this, Job.class, R.layout.job, mJobReference) {
@@ -76,7 +76,7 @@ public class DisplayPage extends AppCompatActivity
     /**
      * displayUserfaves attaches the display page to the favorites page.
      * This makes sure the button works when clicked.
-     * @param v
+     * @param v uses a label to connect them
      */
 
     public void displayUserfaves(View v)
@@ -91,7 +91,7 @@ public class DisplayPage extends AppCompatActivity
     /**
      * returnToHome connects the display page with the discovery page.
      * This makes sure the button works when clicked.
-     * @param v
+     * @param v uses a label to connect them
      */
 
     public void returnToHome(View v)
