@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class DisplayPage extends AppCompatActivity
 {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private FirebaseListAdapter<Job> mFirebaseAdapter;
+    private FirebaseListAdapter<NewJob> mFirebaseAdapter;
     private DatabaseReference mJobReference = database.getReference().child("JobListings");
 
     @Override
@@ -57,13 +57,13 @@ public class DisplayPage extends AppCompatActivity
 
 
     private void setUpFirebaseAdapter(ListView listView) {
-        mFirebaseAdapter = new FirebaseListAdapter<Job>(this, Job.class, R.layout.job, mJobReference) {
+        mFirebaseAdapter = new FirebaseListAdapter<NewJob>(this, NewJob.class, R.layout.job, mJobReference) {
             @Override
-            protected void populateView(View v, Job model, int position) {
-                ((TextView)v.findViewById(R.id.companyTextView)).setText(model.getCompany());
-                ((TextView)v.findViewById(R.id.descriptionTextView)).setText(model.getDescription());
-                ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getTitle());
-                ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getAddress());
+            protected void populateView(View v, NewJob model, int position) {
+                ((TextView)v.findViewById(R.id.companyTextView)).setText(model.getCompanyName());
+                ((TextView)v.findViewById(R.id.descriptionTextView)).setText(model.getJobText());
+                ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getJobTitle());
+                ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getJobLocation());
             }
         };
         listView.setAdapter(mFirebaseAdapter);
@@ -86,6 +86,8 @@ public class DisplayPage extends AppCompatActivity
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+
 
 
 

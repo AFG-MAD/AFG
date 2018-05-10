@@ -16,8 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".DisplayPage"></activity>
         <activity android:name=".FavoritesPage"></activity>
+        <activity android:name=".DBPopulator"
+            android:label="@string/title_activity_dbpopulator"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
     </application>
+
 </manifest>
