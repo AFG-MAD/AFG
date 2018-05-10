@@ -46,13 +46,11 @@ public class DisplayPage extends AppCompatActivity
 
         String category = bundle.getString("category");
         String radius = bundle.getString("radius");
-        String zipStr = bundle.getString("zip");
         System.out.println(category);
         System.out.println(radius);
-        System.out.println(zipStr);
 
         TextView textResultsHeading = findViewById(R.id.textResultsHeading);
-        textResultsHeading.setText("Results for " + category + " related jobs within " + radius + " of " + zipStr);
+        textResultsHeading.setText("Results for " + category + " related jobs in " + radius);
 
         setUpFirebaseAdapter(displayList);
     }

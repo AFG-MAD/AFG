@@ -204,20 +204,14 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
         System.out.println(radius);
 
-        EditText zipText = findViewById(R.id.zipCodeEditText);
-        String zipStr = zipText.getText().toString();
-
-
-        System.out.println(zipStr);
 
         TextView resultsHeading = findViewById(R.id.resultsLabel);
-        resultsHeading.setText("Results for " + category + " jobs within " + radius + " of " + zipStr);
+        resultsHeading.setText("Results for " + category + " jobs in " + radius);
 
 
         Intent intent =new Intent(this, DisplayPage.class);
         intent.putExtra("category", category);
         intent.putExtra("radius", radius);
-        intent.putExtra("zip", zipStr);
         intent.putExtra("jobs", jobs);
         startActivity(intent);
 

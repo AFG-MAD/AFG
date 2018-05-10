@@ -57,7 +57,7 @@
         android:text="@string/faveButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.911"
+        app:layout_constraintHorizontal_bias="0.983"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jobList"
         app:layout_constraintVertical_bias="0.833" />
@@ -98,7 +98,7 @@
 
     <ListView
         android:id="@+id/jobList"
-        android:layout_width="504dp"
+        android:layout_width="565dp"
         android:layout_height="550dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -129,7 +129,7 @@
         android:text="@string/homeButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintHorizontal_bias="0.016"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jobList"
         app:layout_constraintVertical_bias="1.0"
