@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#020046</color>//app name bar
+    <color name="colorPrimaryDark">#B0C4B1</color>//bar at top
+    <color name="colorAccent">#6B0F1A</color>
+    <color name = "background">#EFF4E8</color>
+    <color name="Lightblue">#E1E9F4</color>
 </resources>
