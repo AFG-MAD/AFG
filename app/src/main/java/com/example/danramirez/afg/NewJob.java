@@ -125,7 +125,7 @@ public class NewJob implements Serializable {
     }
 
     public String toString(){
-        return "Unique id: " + uniqID + "\nURL: " + url + "\nCompany Name: " + companyName + "\nCountry: " + geo + "\nJob Title: " + jobTitle + "\nLocation" + jobLocation +"\nJob Description" + jobText;
+        return "Unique id: " + uniqID + "\nURL: " + url + "\nCompany Name: " + companyName + "\nCountry: " + geo + "\nJob Title: " + jobTitle + "\nLocation: " + jobLocation +"\nJob Description: " + jobText;
     }
 }
 

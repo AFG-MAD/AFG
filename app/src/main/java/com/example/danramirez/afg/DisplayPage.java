@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 
@@ -19,11 +21,11 @@ import java.util.ArrayList;
  * Intended to display the job lists taken from the data base. These jobs are selected based on the state and category selected.
  */
 
-public class DisplayPage extends AppCompatActivity
+public class DisplayPage extends AppCompatActivity implements AdapterView.OnItemClickListener
 {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseListAdapter<NewJob> mFirebaseAdapter;
-    private DatabaseReference mJobReference = database.getReference().child("JobListings");
+    private Query mJobReference = database.getReference().child("JobListings").limitToFirst(20);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -53,14 +55,24 @@ public class DisplayPage extends AppCompatActivity
         TextView textResultsHeading = findViewById(R.id.textResultsHeading);
         textResultsHeading.setText("Results for " + category + " related jobs in " + radius);
 
+
+        ListView displayListView = (ListView) findViewById(R.id.displayListView);
+        displayListView.setOnItemClickListener(this);
+
         setUpFirebaseAdapter(displayList);
     }
+
+    public void onItemClick(AdapterView<?> l, View v, int position, long id){
+        System.out.println("ADD TO FAVORITES");
+
+    }
+
 
     /**
      *
      * @param listView this displays the jobs
      */
-    private void setUpFirebaseAdapter(ListView listView) {
+    private void setUpFirebaseAdapter(final ListView listView) {
         mFirebaseAdapter = new FirebaseListAdapter<NewJob>(this, NewJob.class, R.layout.job, mJobReference) {
             @Override
             protected void populateView(View v, NewJob model, int position) {
@@ -69,6 +81,8 @@ public class DisplayPage extends AppCompatActivity
                 ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getJobTitle());
                 ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getJobLocation());
             }
+
+
         };
         listView.setAdapter(mFirebaseAdapter);
     }

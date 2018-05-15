@@ -68,7 +68,7 @@ public class FavoritesAdapter extends ArrayAdapter<NewJob> {
 
                 if(isChecked) {
 
-                    removeToggle.setChecked(isChecked);
+
                     System.out.println("FAVORITES TOGGLE CHECKED");
                     aController.getFavorites().remove(job);
 
