@@ -32,7 +32,8 @@
             android:layout_height="70dp"
             android:layout_weight="1"
             android:text="@string/companyTextView"
-            android:textColor="#E1E9F4" />
+            android:textColor="#E1E9F4"
+            android:typeface="serif"/>
 
         <TextView
             android:id="@+id/descriptionTextView"
@@ -40,7 +41,8 @@
             android:layout_height="70dp"
             android:layout_weight="1"
             android:text="@string/descriptionTextView"
-            android:textColor="#E1E9F4" />
+            android:textColor="#E1E9F4"
+            android:typeface="serif"/>
 
         <TextView
             android:id="@+id/addressTextView"
@@ -48,7 +50,8 @@
             android:layout_height="70dp"
             android:layout_weight="1"
             android:text="@string/addressTextView"
-            android:textColor="#E1E9F4" />
+            android:textColor="#E1E9F4"
+            android:typeface="serif"/>
     </LinearLayout>
 
 </FrameLayout>

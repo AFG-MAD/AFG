@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/resultsLabel"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -27,6 +28,7 @@
 
     <TextView
         android:id="@+id/textView"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -47,6 +49,7 @@
 
     <Button
         android:id="@+id/favButton"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -68,6 +71,7 @@
 
     <TextView
         android:id="@+id/favoritesLabel"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -86,6 +90,7 @@
 
     <TextView
         android:id="@+id/favoritesText"
+        android:typeface="serif"
         android:layout_width="500dp"
         android:layout_height="140dp"
         android:layout_marginBottom="8dp"
@@ -103,6 +108,7 @@
 
     <ListView
         android:id="@+id/favoritesList"
+        android:typeface="serif"
         android:layout_width="565dp"
         android:layout_height="550dp"
         android:layout_marginBottom="8dp"
@@ -121,6 +127,7 @@
     <Button
 
         android:id="@+id/button2"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -143,6 +150,7 @@
 
     <TextView
         android:id="@+id/homeLabel"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
