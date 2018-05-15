@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="false">
+    android:clickable="false"
+    android:background="#303951">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +22,8 @@
             android:layout_width="120dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:text="@string/titleTextView" />
+            android:text="@string/titleTextView"
+            android:textColor="#E1E9F4" />
 
         <TextView
 
@@ -29,21 +31,24 @@
             android:layout_width="120dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:text="@string/companyTextView" />
+            android:text="@string/companyTextView"
+            android:textColor="#E1E9F4" />
 
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="120dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:text="@string/descriptionTextView" />
+            android:text="@string/descriptionTextView"
+            android:textColor="#E1E9F4" />
 
         <TextView
             android:id="@+id/addressTextView"
             android:layout_width="120dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:text="@string/addressTextView" />
+            android:text="@string/addressTextView"
+            android:textColor="#E1E9F4" />
     </LinearLayout>
 
 </FrameLayout>
