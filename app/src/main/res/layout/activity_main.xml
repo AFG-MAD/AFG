@@ -307,6 +307,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="200dp"
         android:text="@string/instructionsTextView"
+        android:textColor="@color/Lightblue"
         app:layout_constraintBottom_toTopOf="@+id/discoveryListView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
