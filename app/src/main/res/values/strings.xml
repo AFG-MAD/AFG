@@ -100,6 +100,7 @@
     <string name="nameApp">FireJob</string>
     <string name="appName">FireJob</string>
     <string name="title_activity_dbpopulator" />
+    <string name="instructionsTextView">Click on a  job to add it to your favorites!</string>
 
 
 </resources>

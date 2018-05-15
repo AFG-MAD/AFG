@@ -1,8 +1,10 @@
 package com.example.danramirez.afg;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 
 import com.firebase.ui.database.FirebaseListAdapter;
@@ -20,16 +22,20 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.util.ArrayList;
+
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
-public class MainActivity extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
+public class MainActivity extends AppCompatActivity  implements AdapterView.OnItemSelectedListener {
 
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -43,6 +49,8 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
 
         //Constructing the Spinner/Dropdown
@@ -77,29 +85,68 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         catSpinner.setOnItemSelectedListener(this);
         radSpinner.setOnItemSelectedListener(this);
 
+       // favoriteToggle = (ToggleButton) findViewById(R.id.addToFavorites);
+
+        //JobAdapter jobAdapter = new JobAdapter(this, R.layout.job, )
+        final ListView discoveryList = (ListView) findViewById(R.id.discoveryListView);
+        //discoveryList.setOnItemClickListener(this);
 
 
-        //JobAdapter adapter = new JobAdapter(this, jobs);
-        ListView discoveryList = (ListView) findViewById(R.id.discoveryListView);
-        //discoveryList.setAdapter(adapter);
+
         System.out.println("Reference: " + mJobReference.toString());
 
         setUpFirebaseAdapter(discoveryList);
+        final Controller aController = (Controller)getApplicationContext();
+        discoveryList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            public void onItemClick(AdapterView a, View v, int position, long id){
+                if(position>=0){
+                    System.out.println("ADD TO FAVORITES");
+
+                    NewJob object = (NewJob) discoveryList.getItemAtPosition(position);
+                    aController.getFavorites().add(object);
+                    if(object==null){
+                        System.out.println("OBJECT NULL");
+
+                    }
+                    System.out.println("Object: " + object);
+                }
+
+               // Toast.makeText(this, "Added", Toast.LENGTH_LONG ).show();
+            }
+        });
 
     }
 
-    private void setUpFirebaseAdapter(ListView listView) {
+
+
+    private void setUpFirebaseAdapter(final ListView listView) {
+
+        //final Controller aController = (Controller)getApplicationContext();
         mFirebaseAdapter = new FirebaseListAdapter<NewJob>(this, NewJob.class, R.layout.job, mJobReference) {
+
             @Override
-            protected void populateView(View v, NewJob model, int position) {
+            protected void populateView(View v, final NewJob model, int position) {
+                //aController.storeSelectedJob(model);
                 ((TextView)v.findViewById(R.id.companyTextView)).setText(model.getCompanyName());
                 ((TextView)v.findViewById(R.id.descriptionTextView)).setText(model.getJobText());
                 ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getJobTitle());
                 ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getJobLocation());
+                System.out.println("LIST VIEW IS POPULATED");
+
+
+
+
             }
+
         };
+
         listView.setAdapter(mFirebaseAdapter);
+
     }
+
+
+
 
 
     /**
@@ -190,16 +237,6 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    }
-
-
-    /**
-     *
-     */
-    public void addToFavorites(){
-
-
-
     }
 
 

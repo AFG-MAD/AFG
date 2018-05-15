@@ -3,6 +3,7 @@ package com.example.danramirez.afg;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ListView;
@@ -29,7 +30,7 @@ public class FavoritesPage extends AppCompatActivity
 
         final Controller aController = (Controller)getApplicationContext();
         ArrayList<NewJob> favorites = aController.getFavorites();
-        System.out.println(favorites.toString());
+        Log.e("FavoritesPage", "Favorites Array List: " + favorites);
         FavoritesAdapter adapter = new FavoritesAdapter(this, favorites);
         ListView favoritesList = (ListView) findViewById(R.id.favoritesList);
         favoritesList.setAdapter(adapter);
