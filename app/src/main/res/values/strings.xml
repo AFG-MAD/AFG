@@ -1,7 +1,7 @@
 <resources>
     <string name="favoritesLabel">favorites</string>
     <string name="TextFavorites">Favorites</string>
-    <string name ="spinner_categories">Select Category</string>
+    <string name="spinner_categories">Select Category</string>
     <string name="radiusText">State:</string>
     <string name="discoveryText">Discovery Section</string>
     <string name="descriptionText">Description</string>
@@ -96,11 +96,11 @@
     <string name="homeButton">Home</string>
     <string name="addToFavorites">Add</string>
     <string name="favesText" />
-    <string name="homeText" >Home</string>/>
+    <string name="homeText">Home</string>/>
     <string name="nameApp">Find My Future</string>
     <string name="appName">Find My Future</string>
     <string name="title_activity_dbpopulator" />
-    <string name="instructionsTextView">Click on a  job to add it to your favorites!</string>
+    <string name="instructionsTextView">Click on a  job to add it to your favorites and press and hold to visit the website!</string>
 
 
 </resources>

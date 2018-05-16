@@ -2,6 +2,7 @@ package com.example.danramirez.afg;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         System.out.println("Reference: " + mJobReference.toString());
 
         setUpFirebaseAdapter(discoveryList);
+
         final Controller aController = (Controller)getApplicationContext();
         discoveryList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
@@ -116,18 +118,39 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
             }
         });
 
+        discoveryList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+            @Override
+            public boolean onItemLongClick(final AdapterView<?> parent, View view,
+                                           final int position, long id) {
+
+
+                System.out.println("LONG CLICK ACTIVATED");
+                NewJob object = (NewJob) discoveryList.getItemAtPosition(position);
+                String url = object.getUrl();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+
+                return false;
+            }
+        });
+
+
+
+
     }
 
 
 
     private void setUpFirebaseAdapter(final ListView listView) {
 
-        //final Controller aController = (Controller)getApplicationContext();
+
         mFirebaseAdapter = new FirebaseListAdapter<NewJob>(this, NewJob.class, R.layout.job, mJobReference) {
 
             @Override
             protected void populateView(View v, final NewJob model, int position) {
-                //aController.storeSelectedJob(model);
+
                 ((TextView)v.findViewById(R.id.companyTextView)).setText(model.getCompanyName());
                 ((TextView)v.findViewById(R.id.descriptionTextView)).setText(model.getJobText());
                 ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getJobTitle());

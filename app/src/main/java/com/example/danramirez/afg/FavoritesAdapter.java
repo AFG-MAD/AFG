@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -70,7 +71,8 @@ public class FavoritesAdapter extends ArrayAdapter<NewJob> {
 
 
                     System.out.println("FAVORITES TOGGLE CHECKED");
-                    aController.getFavorites().remove(job);
+
+                    aController.getFavorites().remove(position);
 
                     System.out.println(aController.getFavorites().toString());
 
