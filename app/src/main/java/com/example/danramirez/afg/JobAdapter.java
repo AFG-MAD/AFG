@@ -146,11 +146,11 @@ public class JobAdapter extends ArrayAdapter<NewJob> {
 
                 if(isChecked) {
 
-
                     System.out.println("JOB TOGGLE CHECKED");
                     System.out.println("ADD JOB: " + njob.toString());
                     Log.e("JobAdapter", "Job Toggle Checked" + "\nAdd Job: " + njob.toString());
                    aController.getFavorites().add(njob);
+                   System.out.println("Favorited: " + njob.getUniqID() + njob.getJobTitle());
 
                    System.out.println(aController.getFavorites().toString());
                     //favoriteToggle.setChecked(true);

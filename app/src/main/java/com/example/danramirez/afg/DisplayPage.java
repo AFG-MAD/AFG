@@ -26,6 +26,8 @@ public class DisplayPage extends AppCompatActivity implements AdapterView.OnItem
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseListAdapter<NewJob> mFirebaseAdapter;
     private Query mJobReference = database.getReference().child("JobListings").limitToFirst(20);
+    private DatabaseReference listRef = database.getReference().child("JobListings");
+    private Query mQuery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -59,6 +61,10 @@ public class DisplayPage extends AppCompatActivity implements AdapterView.OnItem
         ListView displayListView = (ListView) findViewById(R.id.displayListView);
         displayListView.setOnItemClickListener(this);
 
+        mQuery = buildQuery(radius, category);
+        System.out.println("mQuery: " + mQuery.toString());
+        System.out.println("State: " + radius);
+
         setUpFirebaseAdapter(displayList);
     }
 
@@ -73,18 +79,24 @@ public class DisplayPage extends AppCompatActivity implements AdapterView.OnItem
      * @param listView this displays the jobs
      */
     private void setUpFirebaseAdapter(final ListView listView) {
-        mFirebaseAdapter = new FirebaseListAdapter<NewJob>(this, NewJob.class, R.layout.job, mJobReference) {
+        mFirebaseAdapter = new FirebaseListAdapter<NewJob>(this, NewJob.class, R.layout.job, mQuery) {
             @Override
             protected void populateView(View v, NewJob model, int position) {
                 ((TextView)v.findViewById(R.id.companyTextView)).setText(model.getCompanyName());
                 ((TextView)v.findViewById(R.id.descriptionTextView)).setText(model.getJobText());
                 ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getJobTitle());
-                ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getJobLocation());
+                ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getState());
             }
 
 
         };
         listView.setAdapter(mFirebaseAdapter);
+    }
+
+    private Query buildQuery(String state, String cat)
+    {
+        Query stateQuery = listRef.orderByChild("state").equalTo(state).limitToFirst(10);
+        return stateQuery;
     }
 
     /**

@@ -131,14 +131,13 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
                 ((TextView)v.findViewById(R.id.companyTextView)).setText(model.getCompanyName());
                 ((TextView)v.findViewById(R.id.descriptionTextView)).setText(model.getJobText());
                 ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getJobTitle());
-                ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getJobLocation());
+                ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getState());
                 System.out.println("LIST VIEW IS POPULATED");
 
 
 
 
             }
-
         };
 
         listView.setAdapter(mFirebaseAdapter);

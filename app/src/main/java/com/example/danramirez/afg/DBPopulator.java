@@ -61,8 +61,11 @@ public class DBPopulator extends AppCompatActivity {
 
         for(NewJob j : joblist.getJobList())
         {
-            DatabaseReference pushedJobListing = database.getReference().child("JobListings").child(j.getUniqID());
-            pushedJobListing.setValue(j);
+            if(j.isEntryLevel())
+            {
+                DatabaseReference pushedJobListing = database.getReference().child("JobListings").child(j.getUniqID());
+                pushedJobListing.setValue(j);
+            }
         }
     }
 
