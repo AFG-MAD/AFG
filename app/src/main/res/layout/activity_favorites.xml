@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#303951">
+    android:background="#303951"
+    tools:context="com.example.danramirez.afg.FavoritesPage"
+    tools:layout_editor_absoluteY="89dp"
+   >
 
     <TextView
         android:id="@+id/resultsLabel"

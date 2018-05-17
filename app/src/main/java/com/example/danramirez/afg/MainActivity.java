@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
                     }
                     System.out.println("Object: " + object);
+                    discoveryList.getChildAt(position).setBackgroundColor(Color.GRAY);
                 }
 
                // Toast.makeText(this, "Added", Toast.LENGTH_LONG ).show();
@@ -131,6 +132,9 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
+
+
+
 
                 return false;
             }
