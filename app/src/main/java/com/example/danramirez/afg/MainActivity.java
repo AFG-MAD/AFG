@@ -55,17 +55,19 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
 
 
         //Constructing the Spinner/Dropdown
-       Spinner catSpinner = (Spinner) findViewById(R.id.catSpinner);
-       catSpinner.setOnItemSelectedListener(this);
-
+        EditText keyword = (EditText) findViewById(R.id.keywordEditText);
+       //catSpinner.setOnItemSelectedListener(this);
+        String cat = keyword.getText().toString();
+        if(cat.isEmpty())
+            cat = "0";
        //Array Adapter
-        ArrayAdapter<CharSequence> catAdapter = ArrayAdapter.createFromResource(this, R.array.categories_array, android.R.layout.simple_spinner_dropdown_item);
+       // ArrayAdapter<CharSequence> catAdapter = ArrayAdapter.createFromResource(this, R.array.categories_array, android.R.layout.simple_spinner_dropdown_item);
 
         //Specify Layout
-        catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       // catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         //Apply Adapter to Spinner
-        catSpinner.setAdapter(catAdapter);
+        //catSpinner.setAdapter(catAdapter);
 
 
 
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
         radSpinner.setAdapter(radAdapter);
 
 
-        catSpinner.setOnItemSelectedListener(this);
+        //catSpinner.setOnItemSelectedListener(this);
         radSpinner.setOnItemSelectedListener(this);
 
        // favoriteToggle = (ToggleButton) findViewById(R.id.addToFavorites);
@@ -185,11 +187,11 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
 
         switch(parent.getId()){
-            case R.id.catSpinner:
+            /*case R.id.catSpinner:
                 Object category = parent.getItemAtPosition(position);
                 String selectedCategory = category.toString();
                 Log.e("MainActivity", "Category Selected: " + selectedCategory);
-                Toast.makeText(this, "Category Selected", Toast.LENGTH_LONG ).show();
+                Toast.makeText(this, "Category Selected", Toast.LENGTH_LONG ).show();*/
 
             case R.id.radSpinner:
                 Object radius = parent.getItemAtPosition(position);
@@ -214,8 +216,12 @@ public class MainActivity extends AppCompatActivity  implements AdapterView.OnIt
      */
     public void displayUserInfoSearch(View v)
     {
-        Spinner catSpinner = (Spinner) findViewById(R.id.catSpinner);
-        String category = catSpinner.getSelectedItem().toString();
+        EditText keyword = (EditText) findViewById(R.id.keywordEditText);
+        //String category = catSpinner.getSelectedItem().toString();
+
+        String category = keyword.getText().toString().toLowerCase();
+        if(category.isEmpty())
+            category = "0";
 
         System.out.println(category);
 

@@ -34,6 +34,7 @@ public class DisplayPage extends AppCompatActivity implements AdapterView.OnItem
     private Query mQuery;
     private ArrayList<Integer> deletePositions = new ArrayList<>();
     private ArrayList<NewJob> jobsDisplayed = new ArrayList<>();
+    private boolean adapterReset = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -72,14 +73,12 @@ public class DisplayPage extends AppCompatActivity implements AdapterView.OnItem
         System.out.println("State: " + radius);
 
 
-        setUpFirebaseAdapter("Home");
+        setUpFirebaseAdapter(category, displayList);
         System.out.println(jobsDisplayed.size());
 
-        JobAdapter adapter = new JobAdapter(this, jobsDisplayed);
+        //JobAdapter adapter = new JobAdapter(this, jobsDisplayed);
 
-        displayList.setAdapter(adapter);
-
-
+        //displayList.setAdapter(adapter);
 
 
 
@@ -96,26 +95,35 @@ public class DisplayPage extends AppCompatActivity implements AdapterView.OnItem
      *
      *
      */
-    private void setUpFirebaseAdapter(final String keyword) {
+    private void setUpFirebaseAdapter(final String keyword, ListView listView) {
         mFirebaseAdapter = new FirebaseListAdapter<NewJob>(this, NewJob.class, R.layout.job, mQuery) {
             @Override
             protected void populateView(View v, NewJob model, int position) {
-                if(model.getJobText().contains(keyword) || model.getJobTitle().contains(keyword))
+                if(model.getJobText().toLowerCase().contains(keyword) || model.getJobTitle().toLowerCase().contains(keyword))
                 {
+                    System.out.println("adding job to arraylist");
                     jobsDisplayed.add(model);
+                    ((TextView)v.findViewById(R.id.companyTextView)).setText(model.getCompanyName());
+                    ((TextView)v.findViewById(R.id.descriptionTextView)).setText(model.getJobText());
+                    ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getJobTitle());
+                    ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getState());
                 }
-                ((TextView)v.findViewById(R.id.companyTextView)).setText(model.getCompanyName());
-                ((TextView)v.findViewById(R.id.descriptionTextView)).setText(model.getJobText());
-                ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getJobTitle());
-                ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getState());
+                else
+                {
+                    v.getLayoutParams().height = 2;
+                    v.requestLayout();
+                }
+
             }
         };
-        //listView.setAdapter(mFirebaseAdapter);
+
+        listView.setAdapter(mFirebaseAdapter);
+
     }
 
     private Query buildQuery(String state, String cat)
     {
-        Query stateQuery = listRef.orderByChild("state").equalTo(state).limitToFirst(10);
+        Query stateQuery = listRef.orderByChild("state").equalTo(state).limitToFirst(30);
         return stateQuery;
     }
 

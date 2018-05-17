@@ -6,7 +6,7 @@
     <string name="discoveryText">Discovery Section</string>
     <string name="descriptionText">Description</string>
     <string name="locationText">Location</string>
-    <string name="categoryText">Category:</string>
+    <string name="categoryText">Keyword:</string>
     <string name="textAddtoFav">Add To Favorites</string>
     <string name="textDiscoveryHeading" />
     <string name="textHeadingDisc">Discovery Page</string>
