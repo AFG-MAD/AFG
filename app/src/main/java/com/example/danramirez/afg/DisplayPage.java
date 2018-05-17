@@ -1,10 +1,14 @@
 package com.example.danramirez.afg;
 
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -28,6 +32,8 @@ public class DisplayPage extends AppCompatActivity implements AdapterView.OnItem
     private Query mJobReference = database.getReference().child("JobListings").limitToFirst(20);
     private DatabaseReference listRef = database.getReference().child("JobListings");
     private Query mQuery;
+    private ArrayList<Integer> deletePositions = new ArrayList<>();
+    private ArrayList<NewJob> jobsDisplayed = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -65,7 +71,19 @@ public class DisplayPage extends AppCompatActivity implements AdapterView.OnItem
         System.out.println("mQuery: " + mQuery.toString());
         System.out.println("State: " + radius);
 
-        setUpFirebaseAdapter(displayList);
+
+        setUpFirebaseAdapter("Home");
+        System.out.println(jobsDisplayed.size());
+
+        JobAdapter adapter = new JobAdapter(this, jobsDisplayed);
+
+        displayList.setAdapter(adapter);
+
+
+
+
+
+
     }
 
     public void onItemClick(AdapterView<?> l, View v, int position, long id){
@@ -76,21 +94,23 @@ public class DisplayPage extends AppCompatActivity implements AdapterView.OnItem
 
     /**
      *
-     * @param listView this displays the jobs
+     *
      */
-    private void setUpFirebaseAdapter(final ListView listView) {
+    private void setUpFirebaseAdapter(final String keyword) {
         mFirebaseAdapter = new FirebaseListAdapter<NewJob>(this, NewJob.class, R.layout.job, mQuery) {
             @Override
             protected void populateView(View v, NewJob model, int position) {
+                if(model.getJobText().contains(keyword) || model.getJobTitle().contains(keyword))
+                {
+                    jobsDisplayed.add(model);
+                }
                 ((TextView)v.findViewById(R.id.companyTextView)).setText(model.getCompanyName());
                 ((TextView)v.findViewById(R.id.descriptionTextView)).setText(model.getJobText());
                 ((TextView)v.findViewById(R.id.titleTextView)).setText(model.getJobTitle());
                 ((TextView)v.findViewById(R.id.addressTextView)).setText(model.getState());
             }
-
-
         };
-        listView.setAdapter(mFirebaseAdapter);
+        //listView.setAdapter(mFirebaseAdapter);
     }
 
     private Query buildQuery(String state, String cat)

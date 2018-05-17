@@ -120,7 +120,7 @@ public class JobAdapter extends ArrayAdapter<NewJob> {
         titleTextView.setText(njob.getJobTitle());
         companyTextView.setText(njob.getCompanyName());
         descriptionTextView.setText(njob.getJobText());
-        addressTextView.setText(njob.getJobLocation());
+        addressTextView.setText(njob.getState());
         Log.e("JobAdapter", "List View Populated" );
        // System.out.println("LIST VIEW POPULATED");
 
@@ -166,12 +166,7 @@ public class JobAdapter extends ArrayAdapter<NewJob> {
 
                 }
 
-
             }
-
-
-
-
 
         });
         */
@@ -179,14 +174,6 @@ public class JobAdapter extends ArrayAdapter<NewJob> {
         //Return the completed view to render on screen
 
         return convertView;
-
-
-
-
-
-
-
-
 
 
     }

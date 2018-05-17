@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="89dp">
 
 
-    <Spinner
+    <EditText
         android:id="@+id/catSpinner"
         android:layout_width="82dp"
         android:layout_height="18dp"
