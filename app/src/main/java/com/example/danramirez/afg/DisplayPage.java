@@ -2,6 +2,8 @@ package com.example.danramirez.afg;
 
 import android.content.Intent;
 import android.database.DataSetObserver;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -25,7 +27,7 @@ import java.util.ArrayList;
  * Intended to display the job lists taken from the data base. These jobs are selected based on the state and category selected.
  */
 
-public class DisplayPage extends AppCompatActivity implements AdapterView.OnItemClickListener
+public class DisplayPage extends AppCompatActivity
 {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseListAdapter<NewJob> mFirebaseAdapter;
@@ -65,13 +67,53 @@ public class DisplayPage extends AppCompatActivity implements AdapterView.OnItem
         textResultsHeading.setText("Results for " + category + " related jobs in " + radius);
 
 
-        ListView displayListView = (ListView) findViewById(R.id.displayListView);
-        displayListView.setOnItemClickListener(this);
+        final ListView displayListView = (ListView) findViewById(R.id.displayListView);
 
         mQuery = buildQuery(radius, category);
         System.out.println("mQuery: " + mQuery.toString());
         System.out.println("State: " + radius);
 
+        final Controller aController = (Controller)getApplicationContext();
+        displayListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            public void onItemClick(AdapterView a, View v, int position, long id){
+                if(position>=0){
+                    System.out.println("ADD TO FAVORITES");
+
+                    NewJob object = (NewJob) displayListView.getItemAtPosition(position);
+                    aController.getFavorites().add(object);
+                    if(object==null){
+                        System.out.println("OBJECT NULL");
+
+                    }
+                    System.out.println("Object: " + object);
+                    displayListView.getChildAt(position).setBackgroundColor(Color.GRAY);
+                }
+
+                // Toast.makeText(this, "Added", Toast.LENGTH_LONG ).show();
+            }
+        });
+
+        displayListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+            @Override
+            public boolean onItemLongClick(final AdapterView<?> parent, View view,
+                                           final int position, long id) {
+
+
+                System.out.println("LONG CLICK ACTIVATED");
+                NewJob object = (NewJob) displayListView.getItemAtPosition(position);
+                String url = object.getUrl();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+
+
+
+
+                return false;
+            }
+        });
 
         setUpFirebaseAdapter(category, displayList);
         System.out.println(jobsDisplayed.size());
@@ -85,10 +127,7 @@ public class DisplayPage extends AppCompatActivity implements AdapterView.OnItem
 
     }
 
-    public void onItemClick(AdapterView<?> l, View v, int position, long id){
-        System.out.println("ADD TO FAVORITES");
 
-    }
 
 
     /**
