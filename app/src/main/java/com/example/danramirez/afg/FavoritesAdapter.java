@@ -1,9 +1,11 @@
 package com.example.danramirez.afg;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListView;
@@ -57,7 +59,7 @@ public class FavoritesAdapter extends ArrayAdapter<NewJob> {
             System.out.println("Object Null");
         }
 
-
+        notifyDataSetChanged();
         // Code adapted from https://stackoverflow.com/questions/34980309/favourite-button-android
 
         final ToggleButton removeToggle = (ToggleButton) convertView.findViewById(R.id.removeFromFavorites);
@@ -73,6 +75,8 @@ public class FavoritesAdapter extends ArrayAdapter<NewJob> {
 
                     System.out.println("FAVORITES TOGGLE CHECKED");
                    NewJob job = getItem(position);
+
+
 
                     aController.getFavorites().remove(job);
 
@@ -96,6 +100,7 @@ public class FavoritesAdapter extends ArrayAdapter<NewJob> {
 
 
         });
+
 
 
         return convertView;
