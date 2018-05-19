@@ -16,6 +16,8 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="text"
@@ -93,12 +95,12 @@
         android:text="@string/categoryText"
         android:textColor="#E1E9F4"
         android:typeface="serif"
-        app:layout_constraintBottom_toTopOf="@+id/catSpinner"
+        app:layout_constraintBottom_toTopOf="@+id/keywordEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintHorizontal_bias="0.802"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.967" />
+        app:layout_constraintVertical_bias="0.125" />
 
     <Button
         android:id="@+id/favButton"
@@ -170,13 +172,18 @@
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="40dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/radiusText"
         android:textColor="#E1E9F4"
         android:typeface="serif"
         app:layout_constraintBottom_toTopOf="@+id/radSpinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/categoryText"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952" />
 
 
     <Button

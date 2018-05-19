@@ -56,7 +56,7 @@ public class FavoritesPage extends AppCompatActivity
 
             }
         });
-
+        */
         favoritesList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
             @Override
@@ -78,7 +78,7 @@ public class FavoritesPage extends AppCompatActivity
             }
         });
 
-      */
+
 
 
     }

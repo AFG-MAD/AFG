@@ -14,14 +14,12 @@
         android:clickable="false"
         android:descendantFocusability="blocksDescendants">
 
-        <ToggleButton
-            android:id="@+id/removeFromFavorites"
+        <Button
+            android:id="@+id/removeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="ToggleButton"
-            android:textOff="Remove"
-            android:textOn="Removed"/>
+            android:text="@string/removeButton" />
 
         <TextView
 

@@ -101,6 +101,7 @@
     <string name="appName">Find My Future</string>
     <string name="title_activity_dbpopulator" />
     <string name="instructionsTextView">Click on a  job to add it to your favorites and press and hold to visit the website!</string>
+    <string name="removeButton">Remove</string>
 
 
 </resources>

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -59,38 +60,24 @@ public class FavoritesAdapter extends ArrayAdapter<NewJob> {
             System.out.println("Object Null");
         }
 
-        notifyDataSetChanged();
+
         // Code adapted from https://stackoverflow.com/questions/34980309/favourite-button-android
 
-        final ToggleButton removeToggle = (ToggleButton) convertView.findViewById(R.id.removeFromFavorites);
-        removeToggle.setTag(position);
-        removeToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
-
-
-
-
-                if(isChecked) {
-
+        final Button removeButton = (Button) convertView.findViewById(R.id.removeButton);
+        removeButton.setTag(position);
+        removeButton.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View convertView){
 
                     System.out.println("FAVORITES TOGGLE CHECKED");
                    NewJob job = getItem(position);
 
 
-
                     aController.getFavorites().remove(job);
-
+                    notifyDataSetChanged();
                     System.out.println(aController.getFavorites().toString());
 
 
-                }
-                else{
 
-                    System.out.println("FAVORITES TOGGLE UNCHECKED");
-
-
-
-                }
 
 
             }
